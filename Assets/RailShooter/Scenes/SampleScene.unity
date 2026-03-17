@@ -210,35 +210,35 @@ MonoBehaviour:
       TangentIn:
         x: -0
         y: -0
-        z: -1.1201575
+        z: -1.0939286
       TangentOut:
         x: 0
         y: 0
-        z: 0.6341218
+        z: 0.6096183
       Rotation:
         value:
-          x: -1.4755601e-10
-          y: 0.9855372
-          z: -0.0000000020470172
-          w: -0.16945931
+          x: 5.4070215e-10
+          y: 0.9820871
+          z: 0.0000000020717807
+          w: -0.1884274
     - Position:
-        x: -1.7502446
-        y: 0.24999999
-        z: -8.829826
+        x: -1.810152
+        y: 0.25
+        z: -8.715982
       TangentIn:
         x: -0
         y: -0
-        z: -0.57229424
+        z: -0.5696453
       TangentOut:
         x: 0
         y: 0
-        z: 0.8647352
+        z: 0.8679633
       Rotation:
         value:
-          x: -0.0000000012763937
-          y: 0.8548118
-          z: -0.0000000026350893
-          w: -0.51893806
+          x: 0.0000000034300485
+          y: 0.8490422
+          z: 0.000000004889252
+          w: -0.5283252
     - Position:
         x: -5.3293686
         y: 0.25
@@ -246,53 +246,71 @@ MonoBehaviour:
       TangentIn:
         x: -0
         y: -0
-        z: -0.6784024
+        z: -0.6769328
       TangentOut:
         x: 0
         y: 0
-        z: 0.30899018
+        z: 0.31059492
       Rotation:
         value:
-          x: 0.0000000036414332
-          y: 0.85571414
-          z: 0.000000005001571
-          w: -0.5174489
+          x: 4.3589854e-10
+          y: 0.8599594
+          z: -2.5869384e-10
+          w: -0.5103623
     - Position:
         x: -5.7816753
         y: 0.25
         z: -9.596781
       TangentIn:
-        x: -0
-        y: -0
-        z: -0.2900182
+        x: 0
+        y: 0
+        z: -0.286655
       TangentOut:
         x: 0
         y: 0
-        z: 0.46697262
+        z: 0.5753945
       Rotation:
         value:
-          x: -1.5355095e-18
-          y: 0.9862417
-          z: 2.5737482e-19
-          w: -0.16530915
+          x: -1.5466917e-18
+          y: 0.99783784
+          z: 1.0187461e-19
+          w: -0.065723725
     - Position:
-        x: -5.801341
+        x: -5.7501516
         y: 0.25
-        z: -11.524001
+        z: -11.575983
+      TangentIn:
+        x: 0
+        y: 0
+        z: -0.2995256
+      TangentOut:
+        x: 0.018284082
+        y: 0.00000011920929
+        z: 0.8577671
+      Rotation:
+        value:
+          x: -8.3980235e-20
+          y: 0.980951
+          z: -1.6630457e-20
+          w: 0.19425564
+    - Position:
+        x: -4.602152
+        y: 0.20599997
+        z: -12.399982
       TangentIn:
         x: -0
         y: -0
-        z: -0.19273207
+        z: -0.14137945
       TangentOut:
         x: 0
         y: 0
-        z: 0.19273207
+        z: 0.14137945
       Rotation:
         value:
-          x: -8.713994e-20
-          y: 0.999987
-          z: 4.445846e-22
-          w: -0.005101895
+          x: 0.007161142
+          y: 0.88958573
+          z: -0.013817543
+          w: 0.4565029
     m_MetaData:
     - Mode: 0
       Tension: 0.5
@@ -304,7 +322,9 @@ MonoBehaviour:
       Tension: 0.5
     - Mode: 0
       Tension: 0.5
-    - Mode: 0
+    - Mode: 3
+      Tension: 0.5
+    - Mode: 4
       Tension: 0.5
     - Mode: 0
       Tension: 0.5
@@ -2500,6 +2520,50 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &814095434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 814095435}
+  - component: {fileID: 814095436}
+  m_Layer: 0
+  m_Name: ShootOutPoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &814095435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814095434}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.838433, y: 3.8797283, z: 0.43906116}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1605258956}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &814095436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814095434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3dd65a69f703554796645dd8acc52d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &864934771
 GameObject:
   m_ObjectHideFlags: 0
@@ -3210,8 +3274,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.007866855, y: 0.98503894, z: -0.08741358, w: -0.14830816}
-  m_LocalPosition: {x: 7.7023993, y: 2.098551, z: 11.279961}
+  m_LocalRotation: {x: 0.007968144, y: 0.7772244, z: -0.024165988, w: 0.6287088}
+  m_LocalPosition: {x: 3.0830946, y: 1.7113483, z: -0.75741863}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3233,8 +3297,13 @@ MonoBehaviour:
   endOfPath: 0
   speed: 1.5
   isMoving: 1
-  previewDistance: 0
-  enableDebug: 0
+  shootOutEntries:
+  - shootOutPoint: {fileID: 814095436}
+    distance: 2.6
+  - shootOutPoint: {fileID: 1506100306}
+    distance: 9.9
+  previewDistance: 16.99
+  enableDebug: 1
 --- !u!1 &1162541766
 GameObject:
   m_ObjectHideFlags: 0
@@ -4102,6 +4171,83 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &1506100304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1506100305}
+  - component: {fileID: 1506100306}
+  m_Layer: 0
+  m_Name: ShootOutPoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1506100305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506100304}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.838433, y: 3.8797283, z: 0.43906116}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1605258956}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1506100306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506100304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3dd65a69f703554796645dd8acc52d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1605258955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1605258956}
+  m_Layer: 0
+  m_Name: ShootOutGroup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1605258956
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605258955}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 814095435}
+  - {fileID: 1506100305}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1811122883
 GameObject:
   m_ObjectHideFlags: 0
@@ -4897,3 +5043,4 @@ SceneRoots:
   - {fileID: 926458718}
   - {fileID: 169017375}
   - {fileID: 1811122884}
+  - {fileID: 1605258956}
