@@ -24,11 +24,14 @@ public class PlayerScript : MonoBehaviour
             {
                 if (hit.collider != null)
                 {
-                    IHitable hitable = hit.collider.GetComponent<IHitable>();
+                    IHitable[] hitables = hit.collider.GetComponents<IHitable>();
 
-                    if (hitable != null)
+                    if (hitables != null && hitables.Length > 0)
                     {
-                        hitable.Hit(hit);
+                        foreach (var hitable in hitables)
+                        {
+                            hitable.Hit(hit);
+                        }
                     }
 
                     Debug.Log(hit.collider.gameObject.name);
