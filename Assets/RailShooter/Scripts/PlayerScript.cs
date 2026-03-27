@@ -13,6 +13,8 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.DelayedAction(delegate { Debug.Log("Delayed Actions runs after 5 seconds"); }, 5f);
+
         cam = GetComponent<Camera>();
 
         SwitchWeapon();
