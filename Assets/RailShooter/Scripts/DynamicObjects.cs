@@ -16,7 +16,7 @@ public class DynamicObjects : MonoBehaviour, IHitable
         }
     }
 
-    public void Hit(RaycastHit hit)
+    public void Hit(RaycastHit hit, int damage = 1)
     {
         rb.AddForce(-hit.normal * 100f);
     }
