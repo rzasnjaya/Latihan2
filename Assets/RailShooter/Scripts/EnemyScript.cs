@@ -57,13 +57,21 @@ public class EnemyScript : MonoBehaviour, IHitable
             return;
         }
 
-        if ((agent.nextPosition - transform.position).sqrMagnitude > 0.01f)
+        if (agent.remainingDistance > 0.01f)
         {
-            movementLocal = transform.InverseTransformDirection(agent.nextPosition - transform.position);
+            movementLocal = Vector3.Lerp(movementLocal, transform.InverseTransformDirection(agent.velocity).normalized, 2f * Time.deltaTime);
+
+            agent.nextPosition = transform.position;
+        }
+        else
+        {
+            movementLocal = Vector3.Lerp(movementLocal, Vector3.zero, 2f * Time.deltaTime);
         }
 
         anim.SetFloat("X Speed", movementLocal.x);
         anim.SetFloat("Z Speed", movementLocal.z);
+
+        
     }
 
     public void Hit(RaycastHit hit)
@@ -79,7 +87,13 @@ public class EnemyScript : MonoBehaviour, IHitable
             isDead = true;
             agent.enabled = false;
             shootOutPoint.EnemyKilled();
-            Destroy(gameObject);
+            anim.SetTrigger("Dead");
+            anim.SetBool("Is Dead", true);
+            Destroy(gameObject, 4f);
+        }
+        else
+        {
+            anim.SetTrigger("Shot");
         }
     }
 }
