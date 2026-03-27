@@ -17,3 +17,5 @@ MonoBehaviour:
   maxAmmo: 30
   damageValue: 3
   defaultWeapon: 0
+  muzzleFX: {fileID: 1743301284569550, guid: 5fd674c8c994caa46a0a62a90e418a33, type: 3}
+  fxScale: 0.07

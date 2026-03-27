@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour
 
     private Camera cam;
     private WeaponData currentWeapon;
+    private Transform childFx;
 
     // Start is called before the first frame update
     void Start()
@@ -28,5 +29,14 @@ public class PlayerScript : MonoBehaviour
     {
         currentWeapon = weapon != null ? weapon : defaultWeapon;
         currentWeapon.SetupWeapon(cam, this);
+    }
+
+    public void SetMuzzleFx(Transform fx)
+    {
+        if (childFx != null)
+            Destroy(childFx.gameObject);
+
+        fx.SetParent(transform);
+        childFx = fx;
     }
 }
