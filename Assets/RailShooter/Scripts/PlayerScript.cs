@@ -4,39 +4,29 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    [SerializeField] WeaponData defaultWeapon;
+
     private Camera cam;
+    private WeaponData currentWeapon;
 
     // Start is called before the first frame update
     void Start()
     {
         cam = GetComponent<Camera>();
+
+        SwitchWeapon();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit hit;
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        if (currentWeapon != null) 
+            currentWeapon.WeaponUpdate();
+    }
 
-            if (Physics.Raycast(ray, out hit, 50f))
-            {
-                if (hit.collider != null)
-                {
-                    IHitable[] hitables = hit.collider.GetComponents<IHitable>();
-
-                    if (hitables != null && hitables.Length > 0)
-                    {
-                        foreach (var hitable in hitables)
-                        {
-                            hitable.Hit(hit);
-                        }
-                    }
-
-                    Debug.Log(hit.collider.gameObject.name);
-                }
-            }
-        }
+    public void SwitchWeapon(WeaponData weapon = null)
+    {
+        currentWeapon = weapon != null ? weapon : defaultWeapon;
+        currentWeapon.SetupWeapon(cam, this);
     }
 }
