@@ -110,7 +110,7 @@ public class EnemyScript : MonoBehaviour, IHitable
 
         while (!isDead)
         {
-            shotFx.transform.rotation = Quaternion.LookRotation(transform.forward + Random.insideUnitSphere);
+            shotFx.transform.rotation = Quaternion.LookRotation(transform.forward + Random.insideUnitSphere * 0.1f);
 
             if (Random.Range(0f,1f) < shootAccuracy)
             {
