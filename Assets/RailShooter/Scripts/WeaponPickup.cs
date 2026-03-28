@@ -5,6 +5,7 @@ using UnityEngine;
 public class WeaponPickup : MonoBehaviour, IHitable
 {
     [SerializeField] WeaponData weapon;
+    [SerializeField] float rotateSpeed = 90f;
 
     private PlayerScript player;
 
@@ -19,4 +20,9 @@ public class WeaponPickup : MonoBehaviour, IHitable
     {
         player = FindObjectOfType<PlayerScript>();
     }    
+
+    void Update()
+    {
+        transform.Rotate(Vector3.up, rotateSpeed * Time.deltaTime);
+    }
 }
