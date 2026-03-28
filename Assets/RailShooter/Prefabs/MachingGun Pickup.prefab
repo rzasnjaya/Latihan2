@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 11400000, guid: 58429070177392c4192f2efc50e8ef65, type: 2}
+  rotateSpeed: 90
 --- !u!1001 &6168466594216811101
 PrefabInstance:
   m_ObjectHideFlags: 0

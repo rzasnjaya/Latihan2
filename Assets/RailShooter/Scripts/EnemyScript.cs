@@ -11,6 +11,7 @@ public class EnemyScript : MonoBehaviour, IHitable
     [Header("Shooting Properties")]
     [SerializeField] IntervalRange interval = new IntervalRange(1.5f, 2.7f);
     [SerializeField] float shootAccuracy = 0.5f;
+    [SerializeField] ParticleSystem shotFx;
 
     private int currentHealth;
     private Transform player;
@@ -109,11 +110,17 @@ public class EnemyScript : MonoBehaviour, IHitable
 
         while (!isDead)
         {
+            shotFx.transform.rotation = Quaternion.LookRotation(transform.forward + Random.insideUnitSphere);
+
             if (Random.Range(0f,1f) < shootAccuracy)
             {
+                shotFx.transform.rotation = Quaternion.LookRotation(player.position - shotFx.transform.position);
+
                 GameManager.Instance.PlayerHit(1f);
                 Debug.Log("Player has been hit");
             }
+
+            shotFx.Play();
 
             yield return new WaitForSeconds(interval.GetValue);
         }
