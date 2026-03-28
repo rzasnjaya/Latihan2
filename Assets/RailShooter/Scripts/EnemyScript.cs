@@ -8,6 +8,10 @@ public class EnemyScript : MonoBehaviour, IHitable
     [SerializeField] int maxHealth;
     [SerializeField] Transform targetPos;
 
+    [Header("Shooting Properties")]
+    [SerializeField] IntervalRange interval = new IntervalRange(1.5f, 2.7f);
+    [SerializeField] float shootAccuracy = 0.5f;
+
     private int currentHealth;
     private Transform player;
     private bool isDead;
@@ -34,6 +38,7 @@ public class EnemyScript : MonoBehaviour, IHitable
         if (agent != null)
         {
             agent.SetDestination(targetPos.position);
+            StartCoroutine(Shoot());
         }
     }
 
@@ -96,4 +101,35 @@ public class EnemyScript : MonoBehaviour, IHitable
             anim.SetTrigger("Shot");
         }
     }
+
+    IEnumerator Shoot()
+    {
+        yield return new WaitForSeconds(0.2f);
+        yield return new WaitUntil(() => { return agent.remainingDistance < 0.02f; });
+
+        while (!isDead)
+        {
+            if (Random.Range(0f,1f) < shootAccuracy)
+            {
+                GameManager.Instance.PlayerHit(1f);
+                Debug.Log("Player has been hit");
+            }
+
+            yield return new WaitForSeconds(interval.GetValue);
+        }
+    }
+}
+
+[System.Serializable]
+public struct IntervalRange
+{
+    [SerializeField] float min, max;
+
+    public IntervalRange(float min, float max)
+    {
+        this.min = min;
+        this.max = max;
+    }
+
+    public float GetValue { get => Random.Range(min, max); }
 }
