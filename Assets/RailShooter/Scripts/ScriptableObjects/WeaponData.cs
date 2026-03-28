@@ -97,11 +97,24 @@ public class WeaponData : ScriptableObject
                     foreach (var hitable in hitables)
                     {
                         hitable.Hit(hit, damageValue);
+
+                        if (hitable is EnemyScript)
+                        {
+                            GameManager.Instance.ShotHit(true);
+                            return;
+                        }
+                        else
+                        {
+                            GameManager.Instance.ShotHit(false);
+                        }
                     }
                 }
+
                 Debug.Log(hit.collider.gameObject.name);
             }
+            return;
         }
+        GameManager.Instance.ShotHit(false);
     }
 
     public enum FireType

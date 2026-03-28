@@ -8,7 +8,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameState state;
     [SerializeField] PlayerMove playerMove;
+    [SerializeField] int playerHealth = 10;
 
+    private float currentHealth;
+    private int enemyHit, shotsFired;
     private void Awake()
     {
         Instance = this;
@@ -17,6 +20,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         SwitchState(GameState.Start);
+        Init();
+    }
+
+    void Init()
+    {
+        currentHealth = playerHealth;
     }
 
     public void SwitchState(GameState newState)
@@ -39,6 +48,19 @@ public class GameManager : MonoBehaviour
             case GameState.LevelEnd:
                 break;
         }
+    }
+
+    public void ShotHit(bool hit)
+    {
+        if (hit)
+            enemyHit++;
+
+        shotsFired++;
+    }
+
+    public void PlayerHit(float damage)
+    {
+        currentHealth -= damage;
     }
 }
 
