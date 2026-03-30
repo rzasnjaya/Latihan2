@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CustomWeaponData", menuName = "Weapon Data")]
 public class WeaponData : ScriptableObject
 {
+    public System.Action<int> OnWeaponFired = delegate { };
+
     [SerializeField] FireType type;
     [SerializeField] float rate = 0.15f;
     [SerializeField] int maxAmmo;
@@ -12,6 +14,7 @@ public class WeaponData : ScriptableObject
     [SerializeField] bool defaultWeapon;
     [SerializeField] GameObject muzzleFX;
     [SerializeField] float fxScale = 0.1f;
+    [SerializeField] Sprite weaponIcon;
 
     private Camera cam;
     private ParticleSystem cachedFX;
@@ -19,12 +22,15 @@ public class WeaponData : ScriptableObject
     private int currentAmmo;
     private float nextFireTime;
 
+    public Sprite GetIcon { get => weaponIcon; }
+
     public void SetupWeapon(Camera cam, PlayerScript player)
     {
         this.cam = cam;
         this.player = player;
         nextFireTime = 0f;
         currentAmmo = maxAmmo;
+        OnWeaponFired(currentAmmo);
 
         if (muzzleFX !=null)
         {
@@ -43,6 +49,7 @@ public class WeaponData : ScriptableObject
             {
                 Fire();
                 currentAmmo--;
+                OnWeaponFired(currentAmmo);
             }
             else
             {
@@ -55,6 +62,7 @@ public class WeaponData : ScriptableObject
             {
                 Fire();
                 currentAmmo--;
+                OnWeaponFired(currentAmmo);
                 nextFireTime = Time.time + rate;
             }
             else if (currentAmmo <= 0)
@@ -66,6 +74,7 @@ public class WeaponData : ScriptableObject
         if (defaultWeapon && Input.GetMouseButtonDown(1))
         {
             currentAmmo = maxAmmo;
+            OnWeaponFired(currentAmmo);
         }
 
         if (!defaultWeapon && currentAmmo <= 0)

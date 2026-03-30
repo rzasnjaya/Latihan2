@@ -35,6 +35,11 @@ public class GameManager : MonoBehaviour
         uiManager.Init(currentHealth);
     }
 
+    private void OnDisable()
+    {
+        uiManager.RemoveEvent();
+    }
+
     public void SwitchState(GameState newState)
     {
         if (state == newState)
