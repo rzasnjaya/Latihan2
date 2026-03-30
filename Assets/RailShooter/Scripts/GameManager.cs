@@ -33,10 +33,12 @@ public class GameManager : MonoBehaviour
     {
         currentHealth = playerHealth;
         uiManager.Init(currentHealth);
+        PlayerMove.OnLevelFinished += ShowEndScreen;
     }
 
     private void OnDisable()
     {
+        PlayerMove.OnLevelFinished -= ShowEndScreen;
         uiManager.RemoveEvent();
     }
 
@@ -108,6 +110,11 @@ public class GameManager : MonoBehaviour
     {
         Vector3 screenPos = playerMove.GetComponent<Camera>().WorldToScreenPoint(pos);
         uiManager.ShowHostageKilled(screenPos, show);
+    }
+
+    void ShowEndScreen()
+    {
+        this.DelayedAction(delegate { uiManager.ShowEndScreen(enemyKilled, totalEnemy, hostageKilled, shotsFired, enemyHit); }, 0.2f);
     }
 }
 

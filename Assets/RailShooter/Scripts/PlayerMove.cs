@@ -7,6 +7,8 @@ using UnityEngine.Splines;
 
 public class PlayerMove : MonoBehaviour
 {
+    public static System.Action OnLevelFinished = delegate { };
+
     [SerializeField] private SplineContainer path;
     [SerializeField] private PathLoopOption endOfPath;
     [SerializeField] private float speed = 3f;
@@ -18,6 +20,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private bool enableDebug;
 
     private float _distanceTravelled;
+    private int areaCleared;
     private float _splineLength;
 
     void Start()
@@ -85,6 +88,19 @@ public class PlayerMove : MonoBehaviour
         }
 
         return normalized;
+    }
+
+    public void AreaCleared()
+    {
+        areaCleared++;
+
+        if (areaCleared == shootOutEntries.Length)
+        {
+            OnLevelFinished();
+            return;
+        }
+
+        SetPlayerMovement(true);
     }
 
     public void SetPlayerMovement(bool enable)

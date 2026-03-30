@@ -60,7 +60,7 @@ public class ShootOutPoint : MonoBehaviour
         if (enemyKilled == totalEnemy)
         {
             Debug.Log(gameObject.name + " cleared!");
-            playerMove.SetPlayerMovement(true);
+            playerMove.AreaCleared();
             AreaCleared = true;
             activePoint = false;
             GameManager.Instance.StopTimer();
@@ -73,7 +73,7 @@ public class ShootOutPoint : MonoBehaviour
             return;
 
         AreaCleared = true;
-        playerMove.SetPlayerMovement(true);
+        playerMove.AreaCleared();
 
         foreach (var enemy in enemyList)
         {

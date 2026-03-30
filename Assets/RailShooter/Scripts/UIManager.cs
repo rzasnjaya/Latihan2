@@ -17,6 +17,14 @@ public class UIManager
     [SerializeField] TextMeshProUGUI ammoText;
     [SerializeField] GameObject reloadWarning;
 
+    [Header("Score Properties")]
+    [SerializeField] TextMeshProUGUI enemyKilled;
+    [SerializeField] TextMeshProUGUI hostageKilled;
+    [SerializeField] TextMeshProUGUI shots;
+    [SerializeField] TextMeshProUGUI hit;
+    [SerializeField] TextMeshProUGUI accuracy;
+    [SerializeField] GameObject endScreenPanel;
+
     private WeaponData currentWeapon;
 
     public void Init(float maxHealth)
@@ -74,5 +82,15 @@ public class UIManager
 
         Vector2 adjustPos = Extensions.GetPositionInsideScreen(new Vector2(1920f, 1080f), hostageKilledText, 25f);
         hostageKilledText.anchoredPosition = adjustPos;
+    }
+
+    public void ShowEndScreen(int enemyKill, int totalEnemy, int hostageKill, int totalShots, int totalHit)
+    {
+        endScreenPanel.SetActive(true);
+        enemyKilled.SetText(((enemyKill / (float)totalEnemy) * 100f).ToString("00") + "%");
+        hostageKilled.SetText(hostageKill.ToString());
+        shots.SetText(totalShots.ToString());
+        hit.SetText(totalHit.ToString());
+        accuracy.SetText(((totalHit / (float)totalShots) * 100f).ToString("00") + "%");
     }
 }
