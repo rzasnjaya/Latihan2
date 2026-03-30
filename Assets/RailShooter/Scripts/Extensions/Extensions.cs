@@ -15,4 +15,17 @@ public static class Extensions
 
         action?.Invoke();
     }
+
+    public static Vector3 GetPositionInsideScreen(Vector2 baseRes, RectTransform rect, float offset)
+    {
+        float widthBounds = baseRes.x - rect.rect.width - offset;
+        float heightBounds = baseRes.y - rect.rect.height - offset;
+
+        Vector2 adjustedPos = rect.anchoredPosition;
+
+        adjustedPos.x = Mathf.Clamp(adjustedPos.x, widthBounds * -0.5f, widthBounds * 0.5f);
+        adjustedPos.y = Mathf.Clamp(adjustedPos.y, heightBounds * -0.5f, heightBounds * 0.5f);
+
+        return adjustedPos;
+    }
 }
