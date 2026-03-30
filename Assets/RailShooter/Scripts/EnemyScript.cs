@@ -46,6 +46,7 @@ public class EnemyScript : MonoBehaviour, IHitable
     {
         agent.SetDestination(targetPos.position);
         StartCoroutine(Shoot());
+        GameManager.Instance.RegisterEnemy();
     }
 
     void Update()
@@ -99,7 +100,7 @@ public class EnemyScript : MonoBehaviour, IHitable
             DeadBehaviour();
             agent.enabled = false;            
             anim.SetTrigger("Dead");
-            anim.SetBool("Is Dead", true);
+            anim.SetBool("Is Dead", true);            
             Destroy(gameObject, 4f);
         }
         else
@@ -111,6 +112,7 @@ public class EnemyScript : MonoBehaviour, IHitable
     protected virtual void DeadBehaviour()
     {
         shootOutPoint.EnemyKilled();
+        GameManager.Instance.EnemyKilled();
     }
 
     IEnumerator Shoot()
