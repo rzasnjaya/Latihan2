@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] PlayerScript playerScript;
     [SerializeField] int playerHealth = 10;
 
+    [SerializeField] UIManager uiManager = new UIManager();
+
     private float currentHealth;
     private int enemyHit, shotsFired, enemyKilled, totalEnemy, hostageKilled;
 
@@ -30,6 +32,7 @@ public class GameManager : MonoBehaviour
     void Init()
     {
         currentHealth = playerHealth;
+        uiManager.Init(currentHealth);
     }
 
     public void SwitchState(GameState newState)
@@ -65,6 +68,7 @@ public class GameManager : MonoBehaviour
     public void PlayerHit(float damage)
     {
         currentHealth -= damage;
+        uiManager.UpdateHealth(currentHealth);
         playerScript.ShakeCamera(0.5f, 0.2f, 5f);
     }
 
