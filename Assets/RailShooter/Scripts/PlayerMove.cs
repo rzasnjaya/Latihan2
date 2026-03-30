@@ -47,7 +47,7 @@ public class PlayerMove : MonoBehaviour
                     if (entry.shootOutPoint.AreaCleared) continue;
 
                     if (isMoving)
-                        entry.shootOutPoint.StartShootOut();
+                        entry.shootOutPoint.StartShootOut(shootOutEntries[i].areaTimer);
                 }
             }
         }
@@ -98,6 +98,7 @@ public class ShootOutEntry
 {
     public ShootOutPoint shootOutPoint;
     public float distance;
+    public float areaTimer = 15f;
 }
 
 public enum PathLoopOption

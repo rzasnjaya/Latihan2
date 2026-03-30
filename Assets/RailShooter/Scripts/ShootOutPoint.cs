@@ -31,11 +31,13 @@ public class ShootOutPoint : MonoBehaviour
         }
     }
 
-    public void StartShootOut()
+    public void StartShootOut(float timer)
     {
         activePoint = true;
         playerMove.SetPlayerMovement(false);
         StartCoroutine(SendEnemies());
+        this.DelayedAction(SetAreaCleared, timer);
+        GameManager.Instance.StartTimer(timer);
     }
 
     IEnumerator SendEnemies()
@@ -61,6 +63,24 @@ public class ShootOutPoint : MonoBehaviour
             playerMove.SetPlayerMovement(true);
             AreaCleared = true;
             activePoint = false;
+            GameManager.Instance.StopTimer();
+        }
+    }
+
+    public void SetAreaCleared()
+    {
+        if (AreaCleared)
+            return;
+
+        AreaCleared = true;
+        playerMove.SetPlayerMovement(true);
+
+        foreach (var enemy in enemyList)
+        {
+            if (enemy.enemy == null)
+                continue;
+
+            enemy.enemy.StopShooting();
         }
     }
 }

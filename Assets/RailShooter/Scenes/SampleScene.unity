@@ -3416,8 +3416,10 @@ MonoBehaviour:
   shootOutEntries:
   - shootOutPoint: {fileID: 814095436}
     distance: 2.6
+    areaTimer: 10
   - shootOutPoint: {fileID: 1506100306}
     distance: 9.9
+    areaTimer: 10
   previewDistance: 2.74
   enableDebug: 1
 --- !u!114 &963194230
