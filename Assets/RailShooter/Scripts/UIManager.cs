@@ -9,6 +9,7 @@ using System;
 public class UIManager
 {
     [SerializeField] Slider healthBar;
+    [SerializeField] TextMeshProUGUI timerText;
 
     [Header("Weapon HUD")]
     [SerializeField] Image weaponIcon;
@@ -22,11 +23,19 @@ public class UIManager
         healthBar.maxValue = maxHealth;
         healthBar.value = maxHealth;
         PlayerScript.OnWeaponChanged += UpdateWeapon;
+        TimerObject.OnTimerChanged += UpdateTimer;
+    }
+
+    private void UpdateTimer(int currentTimer)
+    {
+        timerText.SetText(currentTimer.ToString("00"));
     }
 
     public void RemoveEvent()
     {
         PlayerScript.OnWeaponChanged -= UpdateWeapon;
+        TimerObject.OnTimerChanged -= UpdateTimer;
+        currentWeapon.OnWeaponFired -= UpdateAmmo;
     }
 
     private void UpdateWeapon(WeaponData obj)

@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class TimerObject
 {
+    public static System.Action<int> OnTimerChanged = delegate { }; 
     public int displayTimer;
     private Coroutine timer;
 
@@ -35,6 +36,7 @@ public class TimerObject
     {
         while(duration > 0f)
         {
+            OnTimerChanged((int)duration);
             displayTimer = (int)duration;
             duration -= 1f;
             yield return new WaitForSeconds(1f);
