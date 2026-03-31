@@ -21,7 +21,7 @@ public class EnemyScript : MonoBehaviour, IHitable
     private Animator anim;
     private Vector3 movementLocal;
 
-    void Start()
+    void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         player = Camera.main.transform;
@@ -112,6 +112,7 @@ public class EnemyScript : MonoBehaviour, IHitable
     protected virtual void DeadBehaviour()
     {
         shootOutPoint.EnemyKilled();
+        StopShooting();
         GameManager.Instance.EnemyKilled();
     }
 

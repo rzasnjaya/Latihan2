@@ -14,7 +14,16 @@ public class ShootOutPoint : MonoBehaviour
     {
         playerMove = value;
     }
-  
+
+    private void Start()
+    {
+        foreach (var enemy in enemyList)
+        {
+            enemy.enemy.gameObject.SetActive(false);
+            totalEnemy = !(enemy.enemy is HostageScript) ? totalEnemy + 1 : totalEnemy + 0;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -43,10 +52,10 @@ public class ShootOutPoint : MonoBehaviour
     IEnumerator SendEnemies()
     {
         foreach (var enemy in enemyList)
-        {
-            totalEnemy = !(enemy.enemy is HostageScript) ? totalEnemy + 1 : totalEnemy + 0;
+        {            
             yield return new WaitForSeconds(enemy.delay);
 
+            enemy.enemy.gameObject.SetActive(true);
             enemy.enemy.Init(this);
 
             Debug.Log(enemy.enemy.gameObject.name + " Spawned");
