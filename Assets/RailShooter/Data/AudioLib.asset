@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 894dd6effbd53cb41ac6841d5a3dc9dc, type: 3}
+  m_Name: AudioLib
+  m_EditorClassIdentifier: 
+  audioList:
+  - audioName: Gun Shot
+    audioClips:
+    - {fileID: 8300000, guid: a91f7110c862aed44aae7578e0a7774a, type: 3}
+    minPitch: 0.9
+    maxPitch: 1.1
+  - audioName: Electric Zap
+    audioClips:
+    - {fileID: 8300000, guid: 0cf7c49a15e50b24f8c09bbc2ced44a8, type: 3}
+    minPitch: 0.9
+    maxPitch: 1.1
