@@ -64,11 +64,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ShotHit(bool hit)
+    public void ShotHit()
     {
-        if (hit)
-            enemyHit++;
+        enemyHit++;
+    }
 
+    public void ShotsFired()
+    {
         shotsFired++;
     }
 
