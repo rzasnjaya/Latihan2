@@ -86,7 +86,7 @@ public class WeaponData : ScriptableObject
 
     private void Fire()
     {
-        AudioPlayer.Instance.PlaySFX(gunShotSfx.audioName, player.transform);
+        AudioPlayer.Instance.PlaySFX(gunShotSfx, player.transform);
 
         RaycastHit hit;
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
