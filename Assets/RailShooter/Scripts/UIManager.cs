@@ -24,6 +24,7 @@ public class UIManager
     [SerializeField] TextMeshProUGUI shots;
     [SerializeField] TextMeshProUGUI hit;
     [SerializeField] TextMeshProUGUI accuracy;
+    [SerializeField] TextMeshProUGUI rankText;
     [SerializeField] GameObject endScreenPanel;
 
     private WeaponData currentWeapon;
@@ -96,6 +97,33 @@ public class UIManager
         shots.SetText(totalShots.ToString());
         hit.SetText(totalHit.ToString());
         accuracy.SetText(((totalHit / (float)totalShots) * 100f).ToString("00") + "%");
+
+        CalculateScore(enemyKill, totalEnemy, hostageKill, totalShots, totalHit);
+    }
+
+    void CalculateScore(int enemyKill, int totalEnemy, int hostageKill, int totalShots, int totalHit)    
+    {
+        float hostagePenalty = hostageKill * 15f;
+        float enemyKillRatio =((totalHit /  (float)totalEnemy) * 100f) - hostagePenalty;
+        float accuracyRatio =((totalHit /  (float)totalShots) * 100f) - hostagePenalty;
+        float totalAverage = (enemyKillRatio + accuracyRatio) / 2f;
+
+        if (totalAverage >= 85f)
+        {
+            rankText.SetText("A");
+        }
+        else if (totalAverage >= 72f && totalAverage < 85f)
+        {
+            rankText.SetText("B");
+        }
+        else if (totalAverage >= 57f && totalAverage < 72f)
+        {
+            rankText.SetText("C");
+        }
+        else if (totalAverage < 57f)
+        {
+            rankText.SetText("D");
+        }
     }
 
     public void MoveCrosshair(Vector3 mousePositiion)
