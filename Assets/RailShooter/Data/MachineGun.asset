@@ -18,5 +18,7 @@ MonoBehaviour:
   damageValue: 3
   defaultWeapon: 0
   muzzleFX: {fileID: 1743301284569550, guid: 5fd674c8c994caa46a0a62a90e418a33, type: 3}
+  gunShotSfx:
+    audioName: Gun Shot
   fxScale: 0.07
   weaponIcon: {fileID: -644297780690176812, guid: 868b9b5f99c516e45ad369e9addc55b5, type: 3}

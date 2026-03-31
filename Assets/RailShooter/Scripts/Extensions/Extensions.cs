@@ -28,4 +28,11 @@ public static class Extensions
 
         return adjustedPos;
     }
+
+    public static void PlayAudioData(this AudioSource aSource, AudioData audioData)
+    {
+        aSource.pitch = audioData.GetPitch;
+        aSource.clip = audioData.GetAudioClip;
+        aSource.Play();
+    }
 }
