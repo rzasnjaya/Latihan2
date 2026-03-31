@@ -13,7 +13,7 @@ public class WeaponData : ScriptableObject
     [SerializeField] int damageValue;
     [SerializeField] bool defaultWeapon;
     [SerializeField] GameObject muzzleFX;
-    [SerializeField] AudioGetter gunShotSfx;
+    [SerializeField] AudioGetter gunShotSfx, reloadSfx, emptySfx, reloadWarningSfx;
     [SerializeField] float fxScale = 0.1f;
     [SerializeField] Sprite weaponIcon;
 
@@ -52,9 +52,10 @@ public class WeaponData : ScriptableObject
                 currentAmmo--;
                 OnWeaponFired(currentAmmo);
             }
-            else
+            else if (Input.GetMouseButtonDown(0) && currentAmmo <= 0)
             {
-                Debug.Log("Ammo runs out, please reload");
+                AudioPlayer.Instance.PlaySFX(emptySfx, player.transform);
+                AudioPlayer.Instance.PlaySFX(reloadWarningSfx, player.transform);
             }
         }
         else
@@ -66,15 +67,17 @@ public class WeaponData : ScriptableObject
                 OnWeaponFired(currentAmmo);
                 nextFireTime = Time.time + rate;
             }
-            else if (currentAmmo <= 0)
+            else if (Input.GetMouseButton(0) && Time.time > nextFireTime && currentAmmo <= 0)
             {
-                Debug.Log("Ammo runs out, please reload");
+                AudioPlayer.Instance.PlaySFX(emptySfx, player.transform);
+                AudioPlayer.Instance.PlaySFX(reloadWarningSfx, player.transform);
             }
         }
 
         if (defaultWeapon && Input.GetMouseButtonDown(1))
         {
             currentAmmo = maxAmmo;
+            AudioPlayer.Instance.PlaySFX(reloadSfx, player.transform);
             OnWeaponFired(currentAmmo);
         }
 

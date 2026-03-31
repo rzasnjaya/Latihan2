@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5240453313112636236}
   - component: {fileID: 1468778789196595130}
   - component: {fileID: 5090779978664499793}
+  - component: {fileID: 8025022000965925651}
   m_Layer: 0
   m_Name: Hostage
   m_TagString: Untagged
@@ -122,6 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectsPrefabs: {fileID: 1892351807075712, guid: 10ee9fa36b6c8cf4589fdd8731734561, type: 3}
+  hitSfx:
+    id: 1
 --- !u!114 &5090779978664499793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +144,22 @@ MonoBehaviour:
     max: 2.7
   shootAccuracy: 0.5
   shotFx: {fileID: 0}
+--- !u!114 &8025022000965925651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853618931599279665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882d469065958d144a642af333d9e500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSfx:
+    id: 7
+  twoDSound: 1
+  delay: 2
 --- !u!1001 &2475828203645239990
 PrefabInstance:
   m_ObjectHideFlags: 0

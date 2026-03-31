@@ -6,12 +6,14 @@ public class WeaponPickup : MonoBehaviour, IHitable
 {
     [SerializeField] WeaponData weapon;
     [SerializeField] float rotateSpeed = 90f;
+    [SerializeField] AudioGetter pickupSfx;
 
     private PlayerScript player;
 
     public void Hit(RaycastHit hit, int damage = 1)
     {
         player.SwitchWeapon(weapon);
+        AudioPlayer.Instance.PlaySFX(pickupSfx);
         Destroy(gameObject);
     }
 

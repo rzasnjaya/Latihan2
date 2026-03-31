@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 198917022394846920}
   - component: {fileID: 199630755385234010}
   - component: {fileID: 8811754974937893907}
+  - component: {fileID: -5566525608695947531}
   m_Layer: 0
   m_Name: BigExplosion 1
   m_TagString: Untagged
@@ -4956,6 +4957,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageRadius: 3
   delayUntilDestroy: 2.2
+--- !u!114 &-5566525608695947531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121192042590650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882d469065958d144a642af333d9e500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSfx:
+    id: 4
+  twoDSound: 0
+  delay: 0
 --- !u!1 &1123476242953952
 GameObject:
   m_ObjectHideFlags: 0

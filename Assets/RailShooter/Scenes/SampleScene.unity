@@ -1104,6 +1104,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectsPrefabs: {fileID: 1892351807075712, guid: 10ee9fa36b6c8cf4589fdd8731734561, type: 3}
+  hitSfx:
+    id: 5
 --- !u!114 &383393173 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 420609550034409904, guid: f3ef0c0a4ee38cc48bbda4d6e11e6fdb, type: 3}
@@ -1612,6 +1614,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectsPrefabs: {fileID: 1892351807075712, guid: 10ee9fa36b6c8cf4589fdd8731734561, type: 3}
+  hitSfx:
+    id: 5
 --- !u!1001 &566815564
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2740,6 +2744,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectsPrefabs: {fileID: 1892351807075712, guid: 10ee9fa36b6c8cf4589fdd8731734561, type: 3}
+  hitSfx:
+    id: 5
 --- !u!1 &778057161
 GameObject:
   m_ObjectHideFlags: 0
@@ -3138,6 +3144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectsPrefabs: {fileID: 1892351807075712, guid: 10ee9fa36b6c8cf4589fdd8731734561, type: 3}
+  hitSfx:
+    id: 5
 --- !u!1001 &800614983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3643,6 +3651,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectsPrefabs: {fileID: 1892351807075712, guid: 10ee9fa36b6c8cf4589fdd8731734561, type: 3}
+  hitSfx:
+    id: 5
 --- !u!43 &869512417
 Mesh:
   m_ObjectHideFlags: 0
@@ -4472,6 +4482,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  damageSfx:
+    id: 0
 --- !u!114 &963194231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4590,6 +4602,53 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!1 &1043490292
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1043490294}
+  - component: {fileID: 1043490293}
+  m_Layer: 0
+  m_Name: Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1043490293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043490292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01efa66035fc4c64d8bfa72b759fd2f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSfx:
+    id: 9
+  delay: 0
+--- !u!4 &1043490294
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043490292}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.474186, y: 1.052348, z: 1.6294694}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1060605908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5227,6 +5286,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectsPrefabs: {fileID: 1892351807075712, guid: 10ee9fa36b6c8cf4589fdd8731734561, type: 3}
+  hitSfx:
+    id: 5
 --- !u!43 &1178775726
 Mesh:
   m_ObjectHideFlags: 0
@@ -6511,6 +6572,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectsPrefabs: {fileID: 1892351807075712, guid: 10ee9fa36b6c8cf4589fdd8731734561, type: 3}
+  hitSfx:
+    id: 5
 --- !u!1 &1461491686
 GameObject:
   m_ObjectHideFlags: 0
@@ -7961,6 +8024,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectsPrefabs: {fileID: 1892351807075712, guid: 10ee9fa36b6c8cf4589fdd8731734561, type: 3}
+  hitSfx:
+    id: 5
 --- !u!1 &2057812079
 GameObject:
   m_ObjectHideFlags: 0
@@ -8326,3 +8391,4 @@ SceneRoots:
   - {fileID: 1605258956}
   - {fileID: 1682289894}
   - {fileID: 115762062}
+  - {fileID: 1043490294}

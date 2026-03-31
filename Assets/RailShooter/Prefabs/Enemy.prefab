@@ -122,6 +122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectsPrefabs: {fileID: 1892351807075712, guid: 10ee9fa36b6c8cf4589fdd8731734561, type: 3}
+  hitSfx:
+    id: 1
 --- !u!114 &-805357259429404986
 MonoBehaviour:
   m_ObjectHideFlags: 0

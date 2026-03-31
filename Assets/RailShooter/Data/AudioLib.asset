@@ -28,3 +28,38 @@ MonoBehaviour:
     - {fileID: 8300000, guid: b8a1f13eb5b0ebe418fea2c412f7bfb1, type: 3}
     minPitch: 0.9
     maxPitch: 1.1
+  - audioName: Gun Empty
+    audioClips:
+    - {fileID: 8300000, guid: acea7ca4a4ceab74f9f7ec96e4433c37, type: 3}
+    minPitch: 0.9
+    maxPitch: 1.1
+  - audioName: Explosion
+    audioClips:
+    - {fileID: 8300000, guid: 87d9791ebe30a2f45826804d895ee191, type: 3}
+    minPitch: 0.9
+    maxPitch: 1.1
+  - audioName: Hit Impact
+    audioClips:
+    - {fileID: 8300000, guid: 3ce28969e31571845bdda06a081a248b, type: 3}
+    minPitch: 0.9
+    maxPitch: 1.1
+  - audioName: Player Damage
+    audioClips:
+    - {fileID: 8300000, guid: 6bf9dca85d223b24887a4cba48e7f136, type: 3}
+    minPitch: 0.9
+    maxPitch: 1.1
+  - audioName: Reload Warning
+    audioClips:
+    - {fileID: 8300000, guid: 1beabb192f9b0de479c579b1ed8ac211, type: 3}
+    minPitch: 0.9
+    maxPitch: 1.1
+  - audioName: Weapon Pickup
+    audioClips:
+    - {fileID: 8300000, guid: 6258efbc59aa8c240898a38889b207b7, type: 3}
+    minPitch: 0.9
+    maxPitch: 1.1
+  - audioName: BGM
+    audioClips:
+    - {fileID: 8300000, guid: c003f7cdc6137d741bf63182b19c2fb9, type: 3}
+    minPitch: 1
+    maxPitch: 1
