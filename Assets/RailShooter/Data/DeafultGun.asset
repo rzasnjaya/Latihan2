@@ -20,5 +20,6 @@ MonoBehaviour:
   muzzleFX: {fileID: 1743301284569550, guid: 5fd674c8c994caa46a0a62a90e418a33, type: 3}
   gunShotSfx:
     audioName: Gun Shot
+    id: 0
   fxScale: 0.03
   weaponIcon: {fileID: -2456897191603583936, guid: 868b9b5f99c516e45ad369e9addc55b5, type: 3}

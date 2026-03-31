@@ -23,3 +23,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 0cf7c49a15e50b24f8c09bbc2ced44a8, type: 3}
     minPitch: 0.9
     maxPitch: 1.1
+  - audioName: Gun Reload
+    audioClips:
+    - {fileID: 8300000, guid: b8a1f13eb5b0ebe418fea2c412f7bfb1, type: 3}
+    minPitch: 0.9
+    maxPitch: 1.1
