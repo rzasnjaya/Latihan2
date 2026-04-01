@@ -229,6 +229,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: UI_Sprites_Transparent
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 272
+        width: 64
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e75a96ce3e7622c4c81cfbe9324b2aef
+      internalID: -1709304374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -244,6 +265,7 @@ TextureImporter:
       UI_Icon_Hand_Gun: -2456897191603583936
       UI_Icon_Machine_Gun: -644297780690176812
       UI_Panel: 4380208185570964407
+      UI_Sprites_Transparent: -1709304374
       UI_StrippedBar: -6732905544714063899
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
