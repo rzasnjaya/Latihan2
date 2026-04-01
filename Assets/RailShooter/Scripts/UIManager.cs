@@ -96,7 +96,7 @@ public class UIManager
         hostageKilled.SetText(hostageKill.ToString());
         shots.SetText(totalShots.ToString());
         hit.SetText(totalHit.ToString());
-        accuracy.SetText(((totalHit / (float)totalShots) * 100f).ToString("00") + "%");
+        accuracy.SetText(((totalHit / (totalShots == 0 ? 1f : (float)totalShots)) * 100f).ToString("00") + "%");
 
         CalculateScore(enemyKill, totalEnemy, hostageKill, totalShots, totalHit);
     }
@@ -105,7 +105,7 @@ public class UIManager
     {
         float hostagePenalty = hostageKill * 15f;
         float enemyKillRatio =((totalHit /  (float)totalEnemy) * 100f) - hostagePenalty;
-        float accuracyRatio =((totalHit /  (float)totalShots) * 100f) - hostagePenalty;
+        float accuracyRatio =((totalHit / (totalShots == 0 ? 1f : (float)totalShots)) * 100f) - hostagePenalty;
         float totalAverage = (enemyKillRatio + accuracyRatio) / 2f;
 
         if (totalAverage >= 85f)
@@ -119,6 +119,10 @@ public class UIManager
         else if (totalAverage >= 57f && totalAverage < 72f)
         {
             rankText.SetText("C");
+        }
+        else if (totalAverage == 0f)
+        {
+            rankText.SetText("E");
         }
         else if (totalAverage < 57f)
         {

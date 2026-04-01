@@ -36,6 +36,9 @@ public class TimerObject
     {
         while(duration > 0f)
         {
+            if (GameManager.Instance.PlayerDead)
+                yield break;
+
             OnTimerChanged((int)duration);
             displayTimer = (int)duration;
             duration -= 1f;

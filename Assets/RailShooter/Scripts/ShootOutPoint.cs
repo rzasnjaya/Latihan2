@@ -78,7 +78,7 @@ public class ShootOutPoint : MonoBehaviour
 
     public void SetAreaCleared()
     {
-        if (AreaCleared)
+        if (AreaCleared || GameManager.Instance.PlayerDead)
             return;
 
         AreaCleared = true;
