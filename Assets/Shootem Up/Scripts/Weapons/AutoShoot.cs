@@ -58,6 +58,7 @@ public class AutoShoot : MonoBehaviour
     void Shoot(float angle)
     {
         GameObject temp = PoolingManager.instance.UseObject(bulletPrefabs, firePoint.position, firePoint.rotation);
+        temp.name = shootProfile.damage.ToString();
         temp.transform.Rotate(Vector3.up, angle);
     }
 }
