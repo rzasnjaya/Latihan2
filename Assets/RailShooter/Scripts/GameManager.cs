@@ -12,11 +12,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] int playerHealth = 10;
 
     [SerializeField] UIManager uiManager = new UIManager();
+    [SerializeField] VolumeSettings volSetting = new VolumeSettings();
 
     private float currentHealth;
     private int enemyHit, shotsFired, enemyKilled, totalEnemy, hostageKilled;
 
     private TimerObject timerObject = new TimerObject();
+
+    public bool GamePaused { get; private set; }
 
     private void Awake()
     {
@@ -33,6 +36,7 @@ public class GameManager : MonoBehaviour
     {
         currentHealth = playerHealth;
         uiManager.Init(currentHealth);
+        volSetting.Init();
         PlayerMove.OnLevelFinished += ShowEndScreen;
     }
 
@@ -121,6 +125,15 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = Time.timeScale == 0f ? 1f : 0f;
+
+            volSetting.Panel.SetActive(Time.timeScale == 0f);
+
+            GamePaused = Time.timeScale == 0f;
+        }
+
         uiManager.MoveCrosshair(Input.mousePosition);
     }
 }
