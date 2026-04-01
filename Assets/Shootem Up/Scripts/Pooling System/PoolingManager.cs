@@ -13,11 +13,13 @@ public class PoolingManager : MonoBehaviour
 
     public GameObject UseObject(GameObject obj, Vector3 pos, Quaternion rot)
     {
-        return Instantiate(obj, pos, rot);
+        GameObject temp = Instantiate(obj, pos, rot);
+        temp.SetActive(true);
+        return temp;
     }
 
-    public void ReturnObject(GameObject obj)
+    public void ReturnObject(GameObject obj, float delay=0f)
     {
-        Destroy(obj);
+        Destroy(obj, delay);
     }
 }
