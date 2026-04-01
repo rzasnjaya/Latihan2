@@ -30,6 +30,11 @@ public class AudioLibrary : ScriptableObject
             audioNamesList.Add(audio.AudioName);
         }
     }
+
+    private void Awake()
+    {
+        OnValidate();        
+    }
 }
 
 [System.Serializable]

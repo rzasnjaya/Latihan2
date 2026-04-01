@@ -10,10 +10,13 @@ public class TitleMenuManager : MonoBehaviour
     [SerializeField] string gamePlayScene;
 
     [SerializeField] Button startButton, optionButton, optionCloseButton, quitButton;
+    [SerializeField] AudioGetter clickSfx;
 
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = true;
+
         optionPanel.SetActive(false);
         startButton.Select();
 
@@ -28,23 +31,28 @@ public class TitleMenuManager : MonoBehaviour
         if (optionPanel.activeInHierarchy)
             return;
 
+        AudioPlayer.Instance.PlaySFX(clickSfx);
+
         SceneManager.LoadScene(gamePlayScene);
     }
 
     void OpenOptionPanel()
     {
+        AudioPlayer.Instance.PlaySFX(clickSfx);
         optionCloseButton.Select();
         optionPanel.SetActive(true);
     }
 
     void CloseOptionPanel()
     {
+        AudioPlayer.Instance.PlaySFX(clickSfx);
         optionPanel.SetActive(false);
         optionButton.Select();
     }
 
     void QuitGame()
     {
+        AudioPlayer.Instance.PlaySFX(clickSfx);
         Application.Quit();
     }
 }

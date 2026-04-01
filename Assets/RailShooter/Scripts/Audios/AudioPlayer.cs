@@ -16,10 +16,6 @@ public class AudioPlayer : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-    }
-
-    void Start()
-    {
         Init();
     }
 
@@ -45,7 +41,10 @@ public class AudioPlayer : MonoBehaviour
 
     public void PlaySFX(AudioGetter audioSfx, Transform audioLocation = null)
     {
+        if (audioSources.Count == 0) return; // Safety guard
+
         AudioSource temp = audioSources.Dequeue();
+
         if (audioLocation != null)
         {
             temp.transform.position = audioLocation.position;
@@ -56,7 +55,8 @@ public class AudioPlayer : MonoBehaviour
             temp.spatialBlend = 0f;
         }
 
-        temp.transform.position = audioLocation.position;
+        // REMOVED the duplicate temp.transform.position = audioLocation.position line
+
         temp.PlayAudioData(audioLib.GetAudioByName(audioSfx.AudioName));
         audioSources.Enqueue(temp);
     }

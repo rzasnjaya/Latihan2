@@ -157,6 +157,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resolutionDropDown: {fileID: 1357241764}
   qualityDropDown: {fileID: 1357241762}
+  clickSfx:
+    id: 0
 --- !u!114 &425654341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,6 +261,8 @@ MonoBehaviour:
   optionButton: {fileID: 1791643585}
   optionCloseButton: {fileID: 1357241765}
   quitButton: {fileID: 1791643584}
+  clickSfx:
+    id: 0
 --- !u!1 &818470202
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,6 +381,54 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &832047268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 832047270}
+  - component: {fileID: 832047269}
+  m_Layer: 0
+  m_Name: AudioPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &832047269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832047268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31da28608f14c764380e14737b448a60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioLib: {fileID: 11400000, guid: bbe62a46097d6de45a07eaa5b820422f, type: 2}
+  audioSourcesNumber: 1
+  sfxGroup: {fileID: -4091373747052084751, guid: 26e9950c477ba4a45973c17c32bfa6cd, type: 2}
+  bgmGroup: {fileID: -3276039629903919251, guid: 26e9950c477ba4a45973c17c32bfa6cd, type: 2}
+--- !u!4 &832047270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832047268}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 170, y: 95.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1301924492
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,3 +1157,4 @@ SceneRoots:
   - {fileID: 818470204}
   - {fileID: 425654344}
   - {fileID: 1301924495}
+  - {fileID: 832047270}

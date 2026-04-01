@@ -7,6 +7,8 @@ public class OptionScript : MonoBehaviour
 {
     [SerializeField] TMPro.TMP_Dropdown resolutionDropDown, qualityDropDown;
 
+    [SerializeField] AudioGetter clickSfx;
+
     private Resolution[] resolutions;
 
     // Start is called before the first frame update
@@ -44,6 +46,8 @@ public class OptionScript : MonoBehaviour
 
     public void SetResolution(int resolutionId)
     {
+        AudioPlayer.Instance.PlaySFX(clickSfx);
+
         Resolution res = resolutions[resolutionId];
 
         Screen.SetResolution(res.width, res.height, Screen.fullScreen);
@@ -51,6 +55,8 @@ public class OptionScript : MonoBehaviour
 
     public void SetQuality(int qualityId)
     {
+        AudioPlayer.Instance.PlaySFX(clickSfx);
+
         QualitySettings.SetQualityLevel(qualityId);
     }
 }

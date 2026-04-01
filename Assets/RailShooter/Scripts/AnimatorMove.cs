@@ -13,6 +13,9 @@ public class AnimatorMove : MonoBehaviour
 
     private void OnAnimatorMove()
     {
+        if (anim == null)
+            return;
+
         transform.parent.position += anim.deltaPosition;
     }
 }
