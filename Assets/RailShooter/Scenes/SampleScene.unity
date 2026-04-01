@@ -2259,6 +2259,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &566815568 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 420609548962352830, guid: f3ef0c0a4ee38cc48bbda4d6e11e6fdb, type: 3}
+  m_PrefabInstance: {fileID: 566815564}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -5905,6 +5916,8 @@ MonoBehaviour:
     accuracy: {fileID: 39784180}
     rankText: {fileID: 1355719102}
     endScreenPanel: {fileID: 566815566}
+    backButton: {fileID: 566815568}
+    titleSceneName: TitleScene
   volSetting:
     panel: {fileID: 1965439589}
     sfxSlider: {fileID: 1965439588}
@@ -6871,7 +6884,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
