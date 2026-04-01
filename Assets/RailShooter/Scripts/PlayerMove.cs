@@ -90,8 +90,11 @@ public class PlayerMove : MonoBehaviour
         return normalized;
     }
 
-    public void AreaCleared()
+    public void AreaCleared(bool previouslyCleared)
     {
+        if (previouslyCleared)
+            return;
+
         areaCleared++;
 
         if (areaCleared == shootOutEntries.Length)
