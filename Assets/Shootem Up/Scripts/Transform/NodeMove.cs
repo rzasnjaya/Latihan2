@@ -54,5 +54,13 @@ public class NodeMove : MonoBehaviour
             Gizmos.color = Color.green;
             Gizmos.DrawLine(curvePositions[i - 1], curvePositions[i]);
         }
+
+        for (int i = 1; i < nodes.Count; i++)
+        {
+            Color gizmoColor = Color.yellow;
+            gizmoColor.a = 0.5f;
+            Gizmos.color = gizmoColor;
+            Gizmos.DrawLine(nodes[i - 1], nodes[i]);
+        }
     }
 }
