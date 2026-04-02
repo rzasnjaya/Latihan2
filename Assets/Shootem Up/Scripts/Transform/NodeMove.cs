@@ -12,6 +12,9 @@ public class NodeMove : MonoBehaviour
     private const int CURVE_SEGMENT = 20;
     private int realLoopNode;
     private Transform parent;
+    private float nextAngleGrab;
+
+    private Quaternion rotation;
 
     private void OnEnable()
     {
@@ -34,6 +37,7 @@ public class NodeMove : MonoBehaviour
 
     IEnumerator StartMove()
     {
+        float oldAngle = 0f;
         int posID = 0;
         List<Vector3> path = GetCurveNodes();
 
@@ -62,6 +66,31 @@ public class NodeMove : MonoBehaviour
             }
 
             transform.localPosition = Vector3.MoveTowards(transform.localPosition, path[posID], speed * Time.deltaTime);
+
+            if (rotateObject)
+            {
+                if (Time.time > nextAngleGrab)
+                {
+                    nextAngleGrab = Time.time + 0.5f;
+
+                    Vector3 dir = path[posID] - transform.localPosition;
+
+                    if (dir.sqrMagnitude > 0.01f)
+                    {
+                        rotation = Quaternion.LookRotation(dir, Vector3.up);
+                    }
+
+                    float zBank = Mathf.Clamp(rotation.eulerAngles.y - oldAngle, -10f, 10f);
+
+                    Quaternion banking = Quaternion.Euler(0f, 0f, Mathf.Ceil(zBank) * -bankingValue);
+
+                    rotation *= banking;
+
+                    oldAngle = rotation.eulerAngles.y;
+                }
+
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotateSpeed * Time.deltaTime);
+            }
 
             yield return null;
         }
