@@ -11,10 +11,20 @@ public class NodeMove : MonoBehaviour
 
     private const int CURVE_SEGMENT = 20;
     private int realLoopNode;
+    private Transform parent;
 
     private void OnEnable()
     {
         StartCoroutine(StartMove());
+
+        if (transform.parent)
+        {
+            parent = transform.parent;
+        }
+        else
+        {
+            parent = transform;
+        }
     }
 
     private void OnDisable()
@@ -29,7 +39,7 @@ public class NodeMove : MonoBehaviour
 
         while (loopMove || posID < path.Count - 1)
         {
-            if ((path[posID] - transform.position).sqrMagnitude < 0.01f)
+            if ((path[posID] - transform.localPosition).sqrMagnitude < 0.01f)
             {
                 if (loopMove)
                 {
@@ -51,7 +61,7 @@ public class NodeMove : MonoBehaviour
                 }
             }
 
-            transform.position = Vector3.MoveTowards(transform.position, path[posID], speed * Time.deltaTime);
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, path[posID], speed * Time.deltaTime);
 
             yield return null;
         }
@@ -59,19 +69,28 @@ public class NodeMove : MonoBehaviour
 
     List<Vector3> GetCurveNodes()
     {
+        if (transform.parent)
+        {
+            parent = transform.parent;
+        }
+        else
+        {
+            parent = transform;
+        }
+
         List<Vector3> curvedNodes = new List<Vector3>();
-        curvedNodes.Add(transform.position);
+        curvedNodes.Add(parent.InverseTransformPoint(transform.position));
 
         for (int i = 0; i < nodes.Count - 3; i+= 3)
         {
-            Vector3 p0 = nodes[i];
-            Vector3 p1 = nodes[i + 1];
-            Vector3 p2 = nodes[i + 2];
-            Vector3 p3 = nodes[i + 3];
+            Vector3 p0 = parent.InverseTransformPoint(nodes[i]);
+            Vector3 p1 = parent.InverseTransformPoint(nodes[i + 1]);
+            Vector3 p2 = parent.InverseTransformPoint(nodes[i + 2]);
+            Vector3 p3 = parent.InverseTransformPoint(nodes[i + 3]);
 
             if (i == 0)
             {
-                p0 = transform.position;
+                p0 = parent.InverseTransformPoint(transform.position);
                 curvedNodes.Add(CalculateBezierPath(p0, p1, p2, p3, 0f));
             }
 
@@ -104,7 +123,7 @@ public class NodeMove : MonoBehaviour
         for (int i = 1; i < curvePositions.Count; i++)
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawLine(curvePositions[i - 1], curvePositions[i]);
+            Gizmos.DrawLine(parent.TransformPoint(curvePositions[i - 1]), parent.TransformPoint(curvePositions[i]));
         }
 
         for (int i = 1; i < nodes.Count; i++)
