@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class CreateObject : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject objectToCreate;
+    public int createAmount = 1;
 
-    // Update is called once per frame
-    void Update()
+    [Header("Auto-Destroy Properties")]
+    public bool autoDestroy;
+    public float timeToDestroy;
+
+    private Vector3 position;
+
+    public void Create()
     {
-        
+        position = transform.position;
+        position.y = 0;
+
+        for (int i = 0; i < createAmount; i++)
+        {
+            GameObject temp = PoolingManager.instance.UseObject(objectToCreate, position, Quaternion.identity);
+
+            if (autoDestroy)
+                PoolingManager.instance.ReturnObject(temp, timeToDestroy);
+        }
     }
 }
