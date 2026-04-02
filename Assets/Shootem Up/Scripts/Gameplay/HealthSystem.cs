@@ -10,6 +10,7 @@ public class HealthSystem : MonoBehaviour
 
     private string tagName;
     private float currentHealth;
+    private DeathSystem deathScript;
 
     // Start is called before the first frame update
     void OnEnable ()
@@ -20,7 +21,12 @@ public class HealthSystem : MonoBehaviour
             tagName = "EnemyBullet";
 
         currentHealth = maxHealth;
-    }    
+    }
+
+    private void Start()
+    {
+        deathScript = GetComponent<DeathSystem>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -43,5 +49,17 @@ public class HealthSystem : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+        CheckHealth();
+    }
+
+    void CheckHealth()
+    {
+        if (currentHealth <= 0f)
+        {
+            if (deathScript != null)
+                deathScript.Death();
+
+
+        }
     }
 }
