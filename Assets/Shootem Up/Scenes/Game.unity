@@ -323,6 +323,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9dc8bd7eb017f34c8a78e4add00682b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolItems:
+  - poolObject: {fileID: 3587785141970917780, guid: 342ce9ee99a45ea4d870e068f239ec60, type: 3}
+    poolAmount: 30
+    growAble: 1
+  - poolObject: {fileID: 3587785141970917780, guid: 0ac5041c08115d348abeb09f7ac5d228, type: 3}
+    poolAmount: 30
+    growAble: 1
+  - poolObject: {fileID: 1096847040765866, guid: 4d6b65d248ca7df4ba61bcb0804beef9, type: 3}
+    poolAmount: 20
+    growAble: 1
+  - poolObject: {fileID: 1158129094165586, guid: d59d38c888baf2648bf081ab00de3fa4, type: 3}
+    poolAmount: 10
+    growAble: 1
+  - poolObject: {fileID: 4748052975719393106, guid: bad40b6e8a3501e49bc846654ec83003, type: 3}
+    poolAmount: 10
+    growAble: 1
 --- !u!4 &268038578
 Transform:
   m_ObjectHideFlags: 0
@@ -1886,6 +1902,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Human_Rescue
       objectReference: {fileID: 0}
+    - target: {fileID: 100022, guid: 72b3a69ef744f7343a8310513303324c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 72b3a69ef744f7343a8310513303324c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3293,6 +3313,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8627309199418150636, guid: 9adbd6c695be71643a94cd33ccada558, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843413495605214259, guid: 9adbd6c695be71643a94cd33ccada558, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3304,10 +3328,10 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 268038578}
   - {fileID: 514184363}
   - {fileID: 1761567626}
   - {fileID: 1972362288}
-  - {fileID: 268038578}
   - {fileID: 705287303}
   - {fileID: 158664801971524754}
   - {fileID: 745137172}
