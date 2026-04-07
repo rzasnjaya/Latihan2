@@ -31,23 +31,23 @@ public class HealthSystem : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(tagName))
-        {
-            Vector3 triggerPosition = other.ClosestPointOnBounds(transform.position);
-            Vector3 direction = triggerPosition - transform.position;
-
-            GameObject fx = PoolingManager.instance.UseObject(hitEffect, triggerPosition, Quaternion.LookRotation(direction));
-
-            PoolingManager.instance.ReturnObject(fx, 1f);
-
+        { 
             float damage = float.Parse(other.name);
-            TakeDamage(damage);
+            TakeDamage(damage, other);
 
             PoolingManager.instance.ReturnObject(other.gameObject);
         }
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, Collider other)
     {
+        Vector3 triggerPosition = other.ClosestPointOnBounds(transform.position);
+        Vector3 direction = triggerPosition - transform.position;
+
+        GameObject fx = PoolingManager.instance.UseObject(hitEffect, triggerPosition, Quaternion.LookRotation(direction));
+
+        PoolingManager.instance.ReturnObject(fx, 1f);
+
         currentHealth -= damage;
         CheckHealth();
         UpdateUI();

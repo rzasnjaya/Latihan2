@@ -38,7 +38,7 @@ public class MegaBombScript : MonoBehaviour
 
             if (healthSystem != null && colliders[i].CompareTag("Enemy"))
             {
-                healthSystem.TakeDamage(damage);
+                healthSystem.TakeDamage(damage, colliders[i]);
 
                 print(colliders[i].name + " is being hit by the bomb");
             }

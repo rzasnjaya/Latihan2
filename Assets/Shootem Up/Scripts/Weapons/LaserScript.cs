@@ -73,7 +73,7 @@ public class LaserScript : MonoBehaviour
 
             if (health)
             {
-                health.TakeDamage(100f);
+                health.TakeDamage(100f, other);
             }
         }
     }
