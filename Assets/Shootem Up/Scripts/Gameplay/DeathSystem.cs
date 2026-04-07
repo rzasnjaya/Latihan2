@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class DeathSystem : MonoBehaviour
 {
-    public bool destroy = true;
+    public bool destroy = true, backToPool = true;
     public float destroyAfter;
     public CreateObject[] spawnObjects;
     public UnityEvent onDeathEvent;
@@ -29,7 +29,10 @@ public class DeathSystem : MonoBehaviour
 
         if (destroy)
         {
+            if (backToPool)
             PoolingManager.instance.ReturnObject(gameObject, destroyAfter);
+            else
+                Destroy(gameObject, destroyAfter);
         }
 
         for (int i = 0; i < colliders.Length; i++)
