@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using TMPro;
 
 public class UpgradeItem : MonoBehaviour
 {
     [Header("Upgrade Menu Objects")]
     public string statName;
     public string itemName;
-    public Text itemNameText, buyText;
+    public TMP_Text itemNameText, buyText;
     public Slider itemLevelBar;
     public Button buyButton;
 
@@ -22,6 +23,68 @@ public class UpgradeItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        stat = StatsManager.instance.GetStats(statName);
 
+        itemNameText.text = itemName;
+
+        buyText.text = pricesLevel[stat.level].ToString();
+
+        buyButton.onClick.AddListener(BuyUpgrade);
+    }
+
+    public void BuyUpgrade()
+    {
+        if (StatsManager.instance.money >= pricesLevel[stat.level])
+        {
+            StatsManager.instance.AddMoney(-pricesLevel[stat.level]);
+
+            StatsManager.instance.statsTimer.Add(statName, DateTime.Now.AddMinutes(StatsManager.instance.GetUpgradeTime(statName)[stat.level]));
+
+            StartCoroutine(DoUpgrade());
+            Debug.Log("Upgrading " + statName);
+        }
+        else
+        {
+            Debug.Log("Not Enough Money");
+        }
+    }
+
+    public void CheckForUpgradeStatus()
+    {
+
+    }
+
+    IEnumerator DoUpgrade()
+    {
+        isUpgrading = true;
+
+        TimeSpan timeRemaining = StatsManager.instance.statsTimer[statName] - DateTime.Now;
+
+        while (timeRemaining.TotalSeconds > 0f)
+        {
+            timeRemaining = StatsManager.instance.statsTimer[statName] - DateTime.Now;
+            buyText.text = string.Format("{0:00}:{{1:00}", timeRemaining.Minutes, timeRemaining.Seconds);
+            yield return null;
+        }
+
+        Debug.Log("Finish Upgrading " + statName);
+
+        isUpgrading = false;
+
+        IncreaseStat();
+    }
+
+    void IncreaseStat()
+    {
+        stat.level++;
+
+        if (isUpgrading)
+        {
+            StopAllCoroutines();
+            isUpgrading = false;
+        }
+
+        buyText.text = pricesLevel[stat.level].ToString();
+        StatsManager.instance.statsTimer.Remove(statName);
     }
 }
