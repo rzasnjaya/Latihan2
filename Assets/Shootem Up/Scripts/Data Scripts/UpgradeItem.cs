@@ -38,16 +38,20 @@ public class UpgradeItem : MonoBehaviour
     {
         if (StatsManager.instance.money >= pricesLevel[stat.level])
         {
-            StatsManager.instance.AddMoney(-pricesLevel[stat.level]);
+            DialogManager.instance.ShowDialog("Do you really want to upgrade " + statName, () =>
+            {
+                StatsManager.instance.AddMoney(-pricesLevel[stat.level]);
 
-            StatsManager.instance.statsTimer.Add(statName, DateTime.Now.AddMinutes(StatsManager.instance.GetUpgradeTime(statName)[stat.level]));
+                StatsManager.instance.statsTimer.Add(statName, DateTime.Now.AddMinutes(StatsManager.instance.GetUpgradeTime(statName)[stat.level]));
 
-            StartCoroutine(DoUpgrade());
-            Debug.Log("Upgrading " + statName);
+                StartCoroutine(DoUpgrade());
+            });
+            //Debug.Log("Upgrading " + statName);
         }
         else
         {
-            Debug.Log("Not Enough Money");
+            //Debug.Log("Not Enough Money");
+            DialogManager.instance.ShowMessage("You dont have enough moeny to upgrade " + statName);
         }
     }
 
@@ -69,7 +73,7 @@ public class UpgradeItem : MonoBehaviour
             yield return null;
         }
 
-        Debug.Log("Finish Upgrading " + statName);
+        DialogManager.instance.ShowMessage("Finish Upgrading " + statName);
 
         isUpgrading = false;
 
