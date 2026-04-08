@@ -5637,6 +5637,9 @@ MonoBehaviour:
   - poolObject: {fileID: 1306174934252415991, guid: 0137b5fbee832ce4796c92e5a917ca49, type: 3}
     poolAmount: 20
     growAble: 1
+  - poolObject: {fileID: 4748052975719393106, guid: 5888ef12a2dda3d40826540d2fe16cd0, type: 3}
+    poolAmount: 10
+    growAble: 1
 --- !u!4 &268038578
 Transform:
   m_ObjectHideFlags: 0
@@ -18987,6 +18990,7 @@ GameObject:
   - component: {fileID: 1972362293}
   - component: {fileID: 1972362295}
   - component: {fileID: 1972362294}
+  - component: {fileID: 1972362296}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -19085,7 +19089,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972362284}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43d7f35d1c8e2fe48bd9a332ba934c77, type: 3}
   m_Name: 
@@ -19282,6 +19286,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1972362296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972362284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d7f35d1c8e2fe48bd9a332ba934c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootProfile: {fileID: 11400000, guid: 4177302855f04d242a5f146bb0cf923a, type: 2}
+  bulletPrefabs: {fileID: 4748052975719393106, guid: 5888ef12a2dda3d40826540d2fe16cd0, type: 3}
+  firePoint: {fileID: 193846503}
 --- !u!1 &1982095786
 GameObject:
   m_ObjectHideFlags: 0

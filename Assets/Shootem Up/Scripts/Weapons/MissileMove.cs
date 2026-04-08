@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class MissileMove : BulletMove
 {
     public float rotateSpeed = 3f, followDuration = 1f;
-    private Transform player;
+    public bool isPlayer;
+    private Transform target;
 
     private WaitForSeconds physicsTimeStep;
 
@@ -18,13 +20,22 @@ public class MissileMove : BulletMove
 
     private void Start()
     {
-        if (GameObject.FindGameObjectWithTag("Player"))
-            player = GameObject.FindGameObjectWithTag("Player").transform;
+        if (!isPlayer)
+        {
+            if (GameObject.FindGameObjectWithTag("Player"))
+                target = GameObject.FindGameObjectWithTag("Player").transform;
+        }
     }
 
     private void OnEnable()
     {
         StartCoroutine(StartFollow(followDuration));
+
+        if (isPlayer)
+        {
+            if (GameObject.FindGameObjectWithTag("Enemy"))
+                target = FindEnemy();
+        }
     }
 
     IEnumerator StartFollow(float followDuration)
@@ -33,9 +44,9 @@ public class MissileMove : BulletMove
         {
             followDuration -= Time.fixedDeltaTime;
 
-            if (player != null)
+            if (target != null)
             {
-                Vector3 dir = player.position - transform.position;
+                Vector3 dir = target.position - transform.position;
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), rotateSpeed * Time.fixedDeltaTime);
             }
 
@@ -45,9 +56,24 @@ public class MissileMove : BulletMove
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    Transform FindEnemy()
     {
-        
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        Array.Sort(enemies, delegate (GameObject a, GameObject b)
+        {
+            return Vector3.Distance(transform.position, a.transform.position)
+            .CompareTo(Vector3.Distance(transform.position, b.transform.position));
+        });
+
+        if (Application.isEditor)
+        {
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                print(Vector3.Distance(transform.position, enemies[i].transform.position));
+            }
+        }
+
+        return enemies[0].transform;
     }
 }

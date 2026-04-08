@@ -63,9 +63,8 @@ public class HealthSystem : MonoBehaviour
             if (deathScript != null)
                 deathScript.Death();
 
-            
-
-
+            if (isEnemy)
+                gameObject.tag = "Untagged";
         }
     }
 
