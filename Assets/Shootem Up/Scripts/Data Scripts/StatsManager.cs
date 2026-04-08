@@ -7,6 +7,10 @@ public class StatsManager : MonoBehaviour
 {
     public static StatsManager instance;
 
+    public int lives = 5;
+    public int money;
+
+    [Header("Upgrade Options")]
     public List<ShootProfile> blaserUpgradeList = new List<ShootProfile>();
     public List<ShootProfile> missileUpgradeList = new List<ShootProfile>();
     public List<float> healthUpgradeList = new List<float>();
@@ -16,6 +20,9 @@ public class StatsManager : MonoBehaviour
 
     public Dictionary<string, Medals> achievmentList = new Dictionary<string, Medals>();
     public Dictionary<string, DateTime> statsTimer = new Dictionary<string, DateTime>();
+
+    [Header("Upgrade Timer Data")]
+    public List<StatsUpgradeInfo> stats = new List<StatsUpgradeInfo>();
 
     //singleton pattern init
     private void Awake()
@@ -37,10 +44,50 @@ public class StatsManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddMoney(int value)
     {
-        
+        money += value;
+
+        //upodate ui
+    }
+
+    public T GetStatsValue<T>(string statName, List<T> statsList)
+    {
+        for (int i = 0; i < stats.Count; i++)
+        {
+            if (stats[i].name == statName)
+            {
+                return statsList[stats[i].level - 1];
+            }
+        }
+
+        return default(T);
+    }
+
+    public float[] GetUpgradeTime(string statName)
+    {
+        for (int i = 0; i < stats.Count;i++)
+        {
+            if (stats[i].name == statName)
+            {
+                return stats[i].upgradeTime;
+            }
+        }
+
+        return null;
+    }
+
+    public StatsUpgradeInfo GetStats(string statName)
+    {
+        for (int i = 0; i < stats.Count;i++)
+        {
+            if (stats[i].name == statName)
+            {
+                return stats[i];
+            }
+        }
+
+        return null;
     }
 }
 

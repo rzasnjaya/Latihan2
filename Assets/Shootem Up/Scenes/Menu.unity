@@ -636,10 +636,147 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &2052094259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2052094261}
+  - component: {fileID: 2052094260}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2052094260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052094259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bca2351e4d070942953ef3e69356b21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives: 5
+  money: 0
+  blaserUpgradeList:
+  - {fileID: 11400000, guid: eea2c413ba5eebf43a9d4ff08317a6ad, type: 2}
+  - {fileID: 11400000, guid: aca17d3f9c4d13044a3ee324831189f1, type: 2}
+  - {fileID: 11400000, guid: 1d58afc011c650642b9c3ea23a284c6a, type: 2}
+  - {fileID: 11400000, guid: 7a1f10e93a11b384e9a59b3848c3e87d, type: 2}
+  - {fileID: 11400000, guid: 15a35a5664de97848996b0500608d880, type: 2}
+  missileUpgradeList:
+  - {fileID: 11400000, guid: 4177302855f04d242a5f146bb0cf923a, type: 2}
+  - {fileID: 11400000, guid: 96a34b297b55a5140ab82e77203f4e6c, type: 2}
+  - {fileID: 11400000, guid: af6d98ff59a8816438a4a9d346e3ffa2, type: 2}
+  - {fileID: 11400000, guid: ddefa755d3460ab44838386017469e15, type: 2}
+  - {fileID: 11400000, guid: 010b6ee6e45041c4e821f206e8e1fc38, type: 2}
+  healthUpgradeList:
+  - 10
+  - 12
+  - 14
+  - 16
+  - 18
+  megaBombUpgList:
+  - radius: 4
+    damage: 25
+  - radius: 5
+    damage: 30
+  - radius: 6
+    damage: 35
+  - radius: 7
+    damage: 40
+  - radius: 8
+    damage: 45
+  shieldUpgList:
+  - shieldDuration: 3
+  - shieldDuration: 4
+  - shieldDuration: 5
+  - shieldDuration: 6
+  - shieldDuration: 7
+  laserUpgList:
+  - laserDuration: 3
+  - laserDuration: 4
+  - laserDuration: 5
+  - laserDuration: 6
+  - laserDuration: 7
+  stats:
+  - name: Blaster
+    level: 1
+    upgradeTime:
+    - 2
+    - 4
+    - 6
+    - 8
+    - 10
+  - name: Missile
+    level: 1
+    upgradeTime:
+    - 2
+    - 4
+    - 6
+    - 8
+    - 10
+  - name: Health
+    level: 1
+    upgradeTime:
+    - 2
+    - 4
+    - 6
+    - 8
+    - 10
+  - name: MegaBomb
+    level: 1
+    upgradeTime:
+    - 2
+    - 4
+    - 6
+    - 8
+    - 10
+  - name: Shield
+    level: 1
+    upgradeTime:
+    - 2
+    - 4
+    - 6
+    - 8
+    - 10
+  - name: Laser
+    level: 1
+    upgradeTime:
+    - 2
+    - 4
+    - 6
+    - 8
+    - 10
+--- !u!4 &2052094261
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052094259}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 2052094261}
   - {fileID: 980554784}
   - {fileID: 1571696788}
   - {fileID: 351916425}
