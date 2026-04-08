@@ -11,6 +11,7 @@ public class HealthSystem : MonoBehaviour
     private string tagName = "Bullet";
     private float currentHealth;
     private DeathSystem deathScript;
+    private bool dead;
 
     // Start is called before the first frame update
     void OnEnable ()
@@ -25,13 +26,18 @@ public class HealthSystem : MonoBehaviour
 
     private void Start()
     {
+        if (isEnemy) LevelManager.instance.RegisterEnemy();
+
         deathScript = GetComponent<DeathSystem>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(tagName))
-        { 
+        {
+            if (!isEnemy)
+                LevelManager.instance.PlayerHit();
+
             float damage = float.Parse(other.name);
             TakeDamage(damage, other);
 
@@ -63,8 +69,12 @@ public class HealthSystem : MonoBehaviour
             if (deathScript != null)
                 deathScript.Death();
 
-            if (isEnemy)
+            if (isEnemy && !dead)
+            {
+                dead = true;
                 gameObject.tag = "Untagged";
+                LevelManager.instance.AddEnemyKill();
+            }
         }
     }
 

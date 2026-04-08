@@ -10,15 +10,32 @@ public class HumanRescue : MonoBehaviour
     public Image timerUI;
     public UnityEvent onRescued;
 
+    private GameObject player;
+    private void Start()
+    {
+        LevelManager.instance.RegisterRescue();
+
+        if (GameObject.FindGameObjectWithTag("Player"))
+            player = GameObject.FindGameObjectWithTag("Player");
+    }
+
     IEnumerator Rescuing(float time)
     {
         while(time > 0f)
         {
             time -= Time.deltaTime;
             UpdateUI(time);
+
+            if (player == null)
+            {
+                StopAllCoroutines();
+                timerUI.fillAmount = 0f;
+            }
+
             yield return null;
         }
 
+        LevelManager.instance.AddRescue();
         onRescued.Invoke();
         Destroy(gameObject, 1.5f);
     }

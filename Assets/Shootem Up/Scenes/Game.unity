@@ -6907,6 +6907,61 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: ea267a72efe99694f878b7faaa2ef5a4, type: 3}
   m_PrefabInstance: {fileID: 603531318}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &615643761
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 615643763}
+  - component: {fileID: 615643762}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &615643762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615643761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4ee6661d0f4a974f86fa07b6662111d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  medals:
+    rescue: 0
+    kill: 0
+    untouched: 0
+  totalEnemy: 0
+  enemyKilled: 0
+  totalRescue: 0
+  humanRescued: 0
+  onGameEnd:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &615643763
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615643761}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &617743935
 GameObject:
   m_ObjectHideFlags: 0
@@ -19132,7 +19187,19 @@ MonoBehaviour:
   - {fileID: 1972362290}
   onDeathEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 615643762}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: GameEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1972362292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20523,7 +20590,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2245715613917997468, guid: 9adbd6c695be71643a94cd33ccada558, type: 3}
       propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2245715613917997468, guid: 9adbd6c695be71643a94cd33ccada558, type: 3}
       propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
@@ -20544,7 +20611,7 @@ PrefabInstance:
     - target: {fileID: 2245715613917997468, guid: 9adbd6c695be71643a94cd33ccada558, type: 3}
       propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 463030686}
+      objectReference: {fileID: 615643762}
     - target: {fileID: 2245715613917997468, guid: 9adbd6c695be71643a94cd33ccada558, type: 3}
       propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
@@ -20567,7 +20634,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2245715613917997468, guid: 9adbd6c695be71643a94cd33ccada558, type: 3}
       propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
-      value: DetachChildren
+      value: GameEnd
       objectReference: {fileID: 0}
     - target: {fileID: 2245715613917997468, guid: 9adbd6c695be71643a94cd33ccada558, type: 3}
       propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[5].m_MethodName
@@ -20579,7 +20646,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2245715613917997468, guid: 9adbd6c695be71643a94cd33ccada558, type: 3}
       propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
-      value: UnityEngine.Transform, UnityEngine
+      value: LevelManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2245715613917997468, guid: 9adbd6c695be71643a94cd33ccada558, type: 3}
       propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[5].m_TargetAssemblyTypeName
@@ -21008,9 +21075,10 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 268038578}
+  - {fileID: 615643763}
   - {fileID: 1761567626}
+  - {fileID: 1846916749}
   - {fileID: 705287303}
   - {fileID: 2005650451}
-  - {fileID: 1846916749}
   - {fileID: 474284219}
   - {fileID: 154494025}
