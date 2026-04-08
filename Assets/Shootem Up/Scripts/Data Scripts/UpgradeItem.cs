@@ -29,6 +29,8 @@ public class UpgradeItem : MonoBehaviour
 
         buyText.text = pricesLevel[stat.level].ToString();
 
+        itemLevelBar.value = stat.level;
+
         buyButton.onClick.AddListener(BuyUpgrade);
     }
 
@@ -85,6 +87,8 @@ public class UpgradeItem : MonoBehaviour
         }
 
         buyText.text = pricesLevel[stat.level].ToString();
+        itemLevelBar.value = stat.level;
+
         StatsManager.instance.statsTimer.Remove(statName);
     }
 }
