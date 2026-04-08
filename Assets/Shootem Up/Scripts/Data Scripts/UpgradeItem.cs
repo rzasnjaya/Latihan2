@@ -32,6 +32,8 @@ public class UpgradeItem : MonoBehaviour
         itemLevelBar.value = stat.level;
 
         buyButton.onClick.AddListener(BuyUpgrade);
+
+        UpdateItemDisplay();
     }
 
     public void BuyUpgrade()
@@ -55,9 +57,36 @@ public class UpgradeItem : MonoBehaviour
         }
     }
 
+    public void UpdateItemDisplay()
+    {
+        stat = StatsManager.instance.GetStats(statName);
+
+        itemLevelBar.value = stat.level;
+
+        if (stat.level == pricesLevel.Length)
+        {
+            buyText.text = "MAX";
+            return;
+        }
+
+        buyText.text = pricesLevel[stat.level].ToString();
+
+        CheckForUpgradeStatus();
+    }
+
     public void CheckForUpgradeStatus()
     {
-
+        if (StatsManager.instance.statsTimer.ContainsKey(statName))
+        {
+            if (DateTime.Now < StatsManager.instance.statsTimer[statName])
+            {
+                StartCoroutine(DoUpgrade());
+            }
+            else
+            {
+                IncreaseStat();
+            }
+        }
     }
 
     IEnumerator DoUpgrade()
@@ -73,7 +102,7 @@ public class UpgradeItem : MonoBehaviour
             yield return null;
         }
 
-        DialogManager.instance.ShowMessage("Finish Upgrading " + statName);
+        
 
         isUpgrading = false;
 
@@ -94,5 +123,7 @@ public class UpgradeItem : MonoBehaviour
         itemLevelBar.value = stat.level;
 
         StatsManager.instance.statsTimer.Remove(statName);
+
+        DialogManager.instance.ShowMessage("Finish Upgrading " + statName);
     }
 }

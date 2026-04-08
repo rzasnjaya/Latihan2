@@ -89,6 +89,46 @@ public class StatsManager : MonoBehaviour
 
         return null;
     }
+
+
+    public void SaveProgress()
+    {
+        SaveData saveData = new SaveData();
+
+        saveData.lives = lives;
+        saveData.money = money;
+
+        saveData.achievmentList = achievmentList;
+        saveData.statsTimer = statsTimer;
+
+        saveData.stats = stats;
+
+        SaveSystem.Save(saveData);
+    }
+
+    public void LoadProgress()
+    {
+        SaveData loadData = SaveSystem.Load<SaveData>();
+
+        lives = loadData.lives;
+        money = loadData.money;
+
+        achievmentList = loadData.achievmentList;
+        statsTimer = loadData.statsTimer;
+
+        stats = loadData.stats;
+
+        UpdateItemDisplay();
+    }
+
+    void UpdateItemDisplay()
+    {
+        UpgradeItem[] items = FindObjectsOfType<UpgradeItem>();
+        for (int i = 0; i < items.Length; i++)
+        {
+            items[i].UpdateItemDisplay();
+        }
+    }
 }
 
 [System.Serializable]
@@ -116,4 +156,14 @@ public class ShieldData
 public class LaserData
 {
     public float laserDuration;
+}
+
+[System.Serializable]
+public class SaveData
+{
+public int lives;
+public int money;
+public Dictionary<string, Medals> achievmentList = new Dictionary<string, Medals>();
+public Dictionary<string, DateTime> statsTimer = new Dictionary<string, DateTime>();
+public List<StatsUpgradeInfo> stats = new List<StatsUpgradeInfo>();
 }
