@@ -40,6 +40,8 @@ public class SceneLoader : MonoBehaviour
 
     IEnumerator LoadScene(string sceneName)
     {
+        panel.SetActive (true);
+
         AsyncOperation asyncLoading = SceneManager.LoadSceneAsync(sceneName);
 
         while (asyncLoading.isDone)
