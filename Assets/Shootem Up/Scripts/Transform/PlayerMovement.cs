@@ -33,7 +33,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
+#if UNITY_EDITOR    
         touchPos = Input.mousePosition;
+#elif UNITY_ANDROID
+        touchPos = Input.touchCount > 0 ? Input.GetTouch(0).position : (Vector2)touchPos;
+#endif
         touchPos.z = distance;
 
         screenToWorld = cam.ScreenToWorldPoint(touchPos);
