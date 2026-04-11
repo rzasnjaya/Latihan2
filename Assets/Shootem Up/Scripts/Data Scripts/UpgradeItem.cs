@@ -38,6 +38,12 @@ public class UpgradeItem : MonoBehaviour
 
     public void BuyUpgrade()
     {
+        if (isUpgrading)
+        {
+            DialogManager.instance.ShowMessage(statName + " is currently upgrading");
+            return;
+        }
+
         if (StatsManager.instance.money >= pricesLevel[stat.level])
         {
             DialogManager.instance.ShowDialog("Do you really want to upgrade " + statName, () =>
@@ -59,6 +65,8 @@ public class UpgradeItem : MonoBehaviour
 
     public void UpdateItemDisplay()
     {
+        UpdateMoney.instance.UpdateMoneyDisplay();
+
         stat = StatsManager.instance.GetStats(statName);
 
         itemLevelBar.value = stat.level;
