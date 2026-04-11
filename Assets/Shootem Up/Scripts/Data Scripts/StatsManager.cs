@@ -136,6 +136,24 @@ public class StatsManager : MonoBehaviour
             levelMenus[i].UpdateMenu();
         }
     }
+
+    public void AddMedals(string levelName, Medals medal)
+    {
+        Medals newMedal = new Medals();
+
+        if (achievmentList.ContainsKey(levelName))
+        {
+            newMedal.kill = medal.kill ? true : achievmentList[levelName].kill;
+            newMedal.rescue = medal.rescue ? true : achievmentList[levelName].rescue;
+            newMedal.untouched = medal.untouched ? true : achievmentList[levelName].untouched;
+
+            achievmentList[levelName] = newMedal;
+        }
+        else
+        {
+            achievmentList.Add(levelName, medal);
+        }
+    }
 }
 
 [System.Serializable]

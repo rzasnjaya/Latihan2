@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -11,10 +12,14 @@ public class LevelManager : MonoBehaviour
 
     public UnityEvent onGameEnd;
 
+    public string levelName;
+
     private void Awake()
     {
         instance = this;
         medals.untouched = true;
+
+        levelName = SceneManager.GetActiveScene().name;
     }
 
     public void RegisterEnemy()
@@ -56,6 +61,8 @@ public class LevelManager : MonoBehaviour
 
         if (humanRescued >= totalRescue)
             medals.rescue = true;
+
+        StatsManager.instance.AddMedals(levelName, medals);
 
         onGameEnd.Invoke();
     }    

@@ -19,14 +19,19 @@ public class LevelMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (StatsManager.instance.achievmentList.ContainsKey(sceneTarget))
-            sceneMedal = StatsManager.instance.achievmentList[sceneTarget];
+        //if (StatsManager.instance.achievmentList.ContainsKey(sceneTarget))
+        //    sceneMedal = StatsManager.instance.achievmentList[sceneTarget];
+
+        UpdateMenu();
 
         playButton.onClick.AddListener(GoToLevel);
     }
 
     public void UpdateMenu()
     {
+        if (StatsManager.instance.achievmentList.ContainsKey(sceneTarget))
+            sceneMedal = StatsManager.instance.achievmentList[sceneTarget];
+
         if (sceneMedal != null)
         {
             killText.color = sceneMedal.kill ? enabledColor : disabledColor;
