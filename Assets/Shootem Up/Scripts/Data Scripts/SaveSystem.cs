@@ -4,12 +4,14 @@ using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
-public static class SaveSystem 
+public static class SaveSystem
 {
+    private static string SavePath => Application.persistentDataPath + "/savegame.dat"; // satu tempat, tidak bisa typo lagi
+
     public static void Save<T>(T saveData)
     {
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = new FileStream(Application.persistentDataPath + "/savegame.dat", FileMode.Create);
+        FileStream file = new FileStream(SavePath, FileMode.Create);
         bf.Serialize(file, saveData);
         file.Close();
         Debug.Log("Save Success!");
@@ -17,22 +19,17 @@ public static class SaveSystem
 
     public static T Load<T>()
     {
-        if (File.Exists(Application.persistentDataPath + "/savegame.dat"))
+        if (File.Exists(SavePath))
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = new FileStream(Application.persistentDataPath + " /savegame.dat", FileMode.Open);
-
-            Debug.Log("Load Success!");
-
+            FileStream file = new FileStream(SavePath, FileMode.Open);
             T loaded = (T)bf.Deserialize(file);
             file.Close();
+            Debug.Log("Load Success!");
             return loaded;
         }
-        else
-        {
-            Debug.LogError("Save file not found!");
-        }
 
+        Debug.LogWarning("Save file not found, loading defaults.");
         return default(T);
     }
 }

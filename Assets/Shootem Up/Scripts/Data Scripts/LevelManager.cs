@@ -67,6 +67,8 @@ public class LevelManager : MonoBehaviour
             medals.rescue = true;
 
         StatsManager.instance.AddMedals(levelName, medals);
+        StatsManager.instance.levelCompleted.Add(levelName, true);
+        StatsManager.instance.SaveProgress();
 
         onGameEnd.Invoke();
     }    

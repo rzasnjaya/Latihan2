@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Shootem Up/Scenes/Gameplay.unity
     guid: 73874a99ba893ad4996960b5760770ae
+  - enabled: 1
+    path: Assets/Shootem Up/Scenes/Gameplay 2.unity
+    guid: eb33f481798c3e745b4b6c730bae1cf0
   m_configObjects: {}

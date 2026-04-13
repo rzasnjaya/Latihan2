@@ -19,6 +19,7 @@ public class StatsManager : MonoBehaviour
     public List<LaserData> laserUpgList = new List<LaserData>();
 
     public Dictionary<string, Medals> achievmentList = new Dictionary<string, Medals>();
+    public Dictionary<string, bool> levelCompleted = new Dictionary<string, bool>();
     public Dictionary<string, DateTime> statsTimer = new Dictionary<string, DateTime>();
 
     [Header("Upgrade Timer Data")]
@@ -41,7 +42,7 @@ public class StatsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        LoadProgress();
     }
 
     public void AddMoney(int value)
@@ -102,6 +103,7 @@ public class StatsManager : MonoBehaviour
         saveData.money = money;
 
         saveData.achievmentList = achievmentList;
+        saveData.levelCompleted = levelCompleted;
         saveData.statsTimer = statsTimer;
 
         saveData.stats = stats;
@@ -113,12 +115,17 @@ public class StatsManager : MonoBehaviour
     {
         SaveData loadData = SaveSystem.Load<SaveData>();
 
+        if (loadData == null) // file belum ada (pertama kali main)
+        {
+            Debug.LogWarning("No save data found, using defaults.");
+            return;
+        }
+
         lives = loadData.lives;
         money = loadData.money;
-
         achievmentList = loadData.achievmentList;
+        levelCompleted = loadData.levelCompleted;
         statsTimer = loadData.statsTimer;
-
         stats = loadData.stats;
 
         UpdateItemDisplay();
@@ -189,9 +196,10 @@ public class LaserData
 [System.Serializable]
 public class SaveData
 {
-public int lives;
-public int money;
-public Dictionary<string, Medals> achievmentList = new Dictionary<string, Medals>();
-public Dictionary<string, DateTime> statsTimer = new Dictionary<string, DateTime>();
-public List<StatsUpgradeInfo> stats = new List<StatsUpgradeInfo>();
+    public int lives;
+    public int money;
+    public Dictionary<string, Medals> achievmentList = new Dictionary<string, Medals>();
+    public Dictionary<string, bool> levelCompleted  = new Dictionary<string, bool>();
+    public Dictionary<string, DateTime> statsTimer = new Dictionary<string, DateTime>();
+    public List<StatsUpgradeInfo> stats = new List<StatsUpgradeInfo>();
 }
