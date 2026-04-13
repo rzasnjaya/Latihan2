@@ -13,20 +13,30 @@ public class AutoShoot : MonoBehaviour
 
     void OnEnable()
     {
-        interval = new WaitForSeconds(shootProfile.interval);
-        rate = new WaitForSeconds(shootProfile.fireRate);
+        SetIntervalValue();
 
         if (firePoint == null)
             firePoint = transform;
 
-        totalSpread = shootProfile.spread * shootProfile.amount;
-
             StartCoroutine(ShootingSequence());
+    }
+
+    public void SetIntervalValue()
+    {
+        interval = new WaitForSeconds(shootProfile.interval);
+        rate = new WaitForSeconds(shootProfile.fireRate);
+
+        totalSpread = shootProfile.spread * shootProfile.amount;
     }
 
     private void OnDisable()
     {
         StopAllCoroutines();
+    }
+
+    public void SwitchProfile(ShootProfile newProfile)
+    {
+        shootProfile = newProfile;
     }
 
     IEnumerator ShootingSequence()

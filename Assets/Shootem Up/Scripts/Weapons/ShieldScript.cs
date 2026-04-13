@@ -17,6 +17,8 @@ public class ShieldScript : MonoBehaviour
         transform.localScale = Vector3.zero;
         shieldDelay = new WaitForSeconds(shieldDuration);
 
+        shieldDuration = StatsManager.instance.GetStatsValue("Shield", StatsManager.instance.shieldUpgList).shieldDuration;
+
         col = GetComponent<Collider>();
         col.enabled = false;
     }

@@ -11,7 +11,7 @@ public class StatsManager : MonoBehaviour
     public int money;
 
     [Header("Upgrade Options")]
-    public List<ShootProfile> blaserUpgradeList = new List<ShootProfile>();
+    public List<ShootProfile> blasterUpgradeList = new List<ShootProfile>();
     public List<ShootProfile> missileUpgradeList = new List<ShootProfile>();
     public List<float> healthUpgradeList = new List<float>();
     public List<MegaBombData> megaBombUpgList = new List<MegaBombData>();

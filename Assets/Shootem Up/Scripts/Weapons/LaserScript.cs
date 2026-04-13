@@ -17,6 +17,8 @@ public class LaserScript : MonoBehaviour
     {
         coroutineLaserDur = new WaitForSeconds(laserDuration);
 
+        laserDuration = StatsManager.instance.GetStatsValue("MegaBomb", StatsManager.instance.laserUpgList).laserDuration;
+
         col = GetComponent<Collider>();
         col.enabled = false;
     }

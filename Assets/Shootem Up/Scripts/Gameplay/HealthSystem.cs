@@ -17,9 +17,14 @@ public class HealthSystem : MonoBehaviour
     void OnEnable ()
     {
         if (isEnemy)
+        {
             tagName = "Bullet";
+        }
         else
+        {
             tagName = "EnemyBullet";
+            maxHealth = StatsManager.instance.GetStatsValue("Health", StatsManager.instance.healthUpgradeList);
+        }
 
         currentHealth = maxHealth;
     }

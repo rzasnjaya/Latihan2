@@ -13,6 +13,9 @@ public class MegaBombScript : MonoBehaviour
     {
         var partMain = mbFX.main;
         partMain.startSize = radius * partMain.startSize.constant;
+
+        radius = StatsManager.instance.GetStatsValue("MegaBomb", StatsManager.instance.megaBombUpgList).radius;
+        damage = StatsManager.instance.GetStatsValue("MegaBomb", StatsManager.instance.megaBombUpgList).damage;
     }
 
     // Update is called once per frame
