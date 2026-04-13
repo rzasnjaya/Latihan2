@@ -32,7 +32,8 @@ public class ShieldScript : MonoBehaviour
     
     public void ShieldUp()
     {
-        StartCoroutine(EngageShield());
+        if (!col.enabled)
+            StartCoroutine(EngageShield());
     }
 
     IEnumerator EngageShield()

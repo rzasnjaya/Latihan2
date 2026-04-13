@@ -48,8 +48,10 @@ public class StatsManager : MonoBehaviour
     {
         money += value;
 
-        //upodate ui
-        UpdateMoney.instance.DisplayMoney(money);
+        if (UpdateMoney.instance != null)
+        {
+            UpdateMoney.instance.DisplayMoney(money);
+        }
     }
 
     public T GetStatsValue<T>(string statName, List<T> statsList)

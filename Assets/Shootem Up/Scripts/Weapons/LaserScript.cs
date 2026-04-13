@@ -30,6 +30,12 @@ public class LaserScript : MonoBehaviour
         }
     }
 
+    public void ShootLaser()
+    {
+        if (!laserFired)
+            StartCoroutine(FireLaser());
+    }
+
     IEnumerator FireLaser()
     {
         col.enabled = true;
