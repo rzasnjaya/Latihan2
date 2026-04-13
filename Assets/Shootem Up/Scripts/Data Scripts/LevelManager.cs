@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
     public Medals medals = new Medals();
-    public int totalEnemy, enemyKilled, totalRescue, humanRescued;
+    public int totalEnemy, enemyKilled, totalRescue, humanRescued, score;
 
     public UnityEvent onGameEnd;
 
@@ -32,14 +32,18 @@ public class LevelManager : MonoBehaviour
         totalRescue++;
     }
 
-    public void AddEnemyKill()
+    public void AddEnemyKill(int scoreValue)
     {
         enemyKilled++;
+        score += scoreValue;
+        UpdateMoney.instance.DisplayScore(score);
     }
 
     public void AddRescue()
     {
         humanRescued++;
+        score += 75;
+        UpdateMoney.instance.DisplayScore(score);
     }
 
     public void PlayerHit()

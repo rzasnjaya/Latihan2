@@ -18,4 +18,12 @@ public class BulletMove : MonoBehaviour
     {
         myRb.velocity = transform.forward * speed;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Activator") || other.CompareTag("Deactivator"))
+        {
+            PoolingManager.instance.ReturnObject(gameObject);
+        }
+    }
 }

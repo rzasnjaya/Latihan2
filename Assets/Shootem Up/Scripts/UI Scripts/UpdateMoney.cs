@@ -8,7 +8,7 @@ public class UpdateMoney : MonoBehaviour
 {
     public static UpdateMoney instance;
 
-    public TMP_Text moneyDisplay;
+    public TMP_Text moneyDisplay, scoreDisplay;
 
     // Start is called before the first frame update
     void Awake()
@@ -28,6 +28,13 @@ public class UpdateMoney : MonoBehaviour
 
     public void DisplayMoney(int value)
     {
-        moneyDisplay.text = "$ " + value.ToString();
+        if (moneyDisplay)
+            moneyDisplay.text = "$ " + value.ToString();
+    }
+
+    public void DisplayScore(int value)
+    {
+        if (scoreDisplay)
+            scoreDisplay.text = value.ToString("00000000");
     }
 }

@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 4282037300338090717}
   m_Layer: 8
   m_Name: Turret Shooter
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -185,6 +185,8 @@ MonoBehaviour:
   hitEffect: {fileID: 1096847040765866, guid: 4d6b65d248ca7df4ba61bcb0804beef9, type: 3}
   healthBar: {fileID: 0}
   isEnemy: 1
+  minScore: 25
+  maxScore: 50
 --- !u!114 &1228758016723470546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,6 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroy: 0
+  backToPool: 1
   destroyAfter: 0
   spawnObjects:
   - {fileID: 7956539386869347961}

@@ -7,6 +7,7 @@ public class HealthSystem : MonoBehaviour
     public float maxHealth = 10f;
     public GameObject hitEffect, healthBar;
     public bool isEnemy = true;
+    public int minScore = 25, maxScore = 50;  
 
     private string tagName = "Bullet";
     private float currentHealth;
@@ -78,7 +79,7 @@ public class HealthSystem : MonoBehaviour
             {
                 dead = true;
                 gameObject.tag = "Untagged";
-                LevelManager.instance.AddEnemyKill();
+                LevelManager.instance.AddEnemyKill(Random.Range(minScore, maxScore));
             }
         }
     }
