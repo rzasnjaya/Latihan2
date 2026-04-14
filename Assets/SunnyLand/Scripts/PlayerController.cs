@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public CircleCollider2D circleCol;
     public float movementSpeed; // The movement speed of our player, the variable is public so that it can be altered in the inspector
 
-    public Text scoreText; // Reference to the UI text object 
+    public TMP_Text scoreText; // Reference to the UI text object 
     int score; // a private score variable, to keep track of our score and write the value to the UI score object 
 
     float horizontalMovementSpeed; // The value of our horizontalMov speed

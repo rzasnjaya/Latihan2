@@ -6,12 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Shootem Up/Scenes/Menu.unity
-    guid: 7e79b0e9d3886f94e99e23c2c5e076b7
+    path: Assets/SunnyLand/Scenes/MainMenu.unity
+    guid: 70f8077868403f64ebdecb21afad99e6
   - enabled: 1
-    path: Assets/Shootem Up/Scenes/Gameplay.unity
-    guid: 73874a99ba893ad4996960b5760770ae
-  - enabled: 1
-    path: Assets/Shootem Up/Scenes/Gameplay 2.unity
-    guid: eb33f481798c3e745b4b6c730bae1cf0
+    path: Assets/SunnyLand/Scenes/Game.unity
+    guid: 49dde3231fd1ae845bb52759071076d1
   m_configObjects: {}

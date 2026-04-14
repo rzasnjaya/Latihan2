@@ -11,6 +11,7 @@ TagManager:
   - Activator
   - Deactivator
   - Coin
+  - Gem
   layers:
   - Default
   - TransparentFX
@@ -47,4 +48,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Enemy
+    uniqueID: 1337554279
+    locked: 0
+  - name: Gem
+    uniqueID: 1284190851
     locked: 0
