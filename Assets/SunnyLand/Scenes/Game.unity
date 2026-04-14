@@ -384,7 +384,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.006329119, y: 0.006329119, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -5821,6 +5821,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4009236640072660874, guid: 893e4bfc97c925047ab1d08313452514, type: 3}
       propertyPath: m_Name
+      value: Gem
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009236640072660874, guid: 893e4bfc97c925047ab1d08313452514, type: 3}
+      propertyPath: m_TagString
       value: Gem
       objectReference: {fileID: 0}
     m_RemovedComponents: []

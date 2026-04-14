@@ -11,4 +11,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SunnyLand/Scenes/Game.unity
     guid: 49dde3231fd1ae845bb52759071076d1
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2fad77ef21e894442b3cab3fbf6599a4, type: 3}
