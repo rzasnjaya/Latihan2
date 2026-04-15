@@ -25,11 +25,13 @@ public class PlayerController2 : MonoBehaviour
 
     public float lookSpeed;
 
+    public float minLookAngle, maxLookAngle;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -41,6 +43,7 @@ public class PlayerController2 : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, horiRot, 0f);
 
         vertRot -= lookInput.y * Time.deltaTime * lookSpeed;
+        vertRot = Mathf.Clamp(vertRot, minLookAngle, maxLookAngle);
         theCam.localRotation = Quaternion.Euler(vertRot, 0f, 0f);
 
         Vector2 moveInput = moveAction.action.ReadValue<Vector2>();
@@ -49,7 +52,14 @@ public class PlayerController2 : MonoBehaviour
 
         //transform.position = transform.position + new Vector3(moveInput.x * Time.deltaTime * moveSpeed, 0f, moveInput.y * Time.deltaTime * moveSpeed);
 
-        Vector3 moveAmount = new Vector3(moveInput.x, 0f, moveInput.y);
+        //Vector3 moveAmount = new Vector3(moveInput.x, 0f, moveInput.y);
+
+        Vector3 vertMove = transform.forward * moveInput.y;
+        Vector3 horiMove = transform.right * moveInput.x;
+        //Debug.Log(vertMove + "-" + horiMove);
+
+        Vector3 moveAmount = horiMove + vertMove;
+        moveAmount = moveAmount.normalized;
 
         moveAmount = moveAmount * moveSpeed;
 
