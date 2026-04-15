@@ -278,6 +278,7 @@ MonoBehaviour:
   jumpAction: {fileID: 5078368516802720093, guid: 2fad77ef21e894442b3cab3fbf6599a4, type: 3}
   lookAction: {fileID: -6964513605613484037, guid: 2fad77ef21e894442b3cab3fbf6599a4, type: 3}
   charCon: {fileID: 377051643}
+  theCam: {fileID: 1003847691}
   moveSpeed: 5
   jumpForce: 4
   lookSpeed: 10
