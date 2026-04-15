@@ -7,11 +7,15 @@ public class PlayerController2 : MonoBehaviour
 {
     public InputActionReference moveAction;
 
+    public InputActionReference jumpAction;
+
     public CharacterController charCon;
 
     public float moveSpeed;
 
     private float ySpeed;
+
+    public float jumpForce;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +39,11 @@ public class PlayerController2 : MonoBehaviour
         if (charCon.isGrounded == true)
         {
             ySpeed = 0f;
+
+            if (jumpAction.action.WasPressedThisFrame())
+            {
+                ySpeed = jumpForce;
+            }
         }
 
         ySpeed = ySpeed + (Physics.gravity.y * Time.deltaTime);

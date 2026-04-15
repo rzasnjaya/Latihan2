@@ -275,8 +275,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveAction: {fileID: 8738722328026827928, guid: 2fad77ef21e894442b3cab3fbf6599a4, type: 3}
+  jumpAction: {fileID: 5078368516802720093, guid: 2fad77ef21e894442b3cab3fbf6599a4, type: 3}
   charCon: {fileID: 377051643}
   moveSpeed: 5
+  jumpForce: 4
 --- !u!143 &377051643
 CharacterController:
   m_ObjectHideFlags: 0
