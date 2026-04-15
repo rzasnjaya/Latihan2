@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController2 : MonoBehaviour
 {
+    public LayerMask whatIsStock;
+
     public InputActionReference moveAction;
 
     public InputActionReference jumpAction;
@@ -13,7 +15,11 @@ public class PlayerController2 : MonoBehaviour
 
     public CharacterController charCon;
 
-    public Transform theCam;
+    public Camera theCam;
+
+    private GameObject heldPickup;
+
+    public Transform holdPoint;
 
     public float moveSpeed;
 
@@ -26,6 +32,9 @@ public class PlayerController2 : MonoBehaviour
     public float lookSpeed;
 
     public float minLookAngle, maxLookAngle;
+
+    public float interactionRange;
+
 
 
     // Start is called before the first frame update
@@ -44,7 +53,7 @@ public class PlayerController2 : MonoBehaviour
 
         vertRot -= lookInput.y * Time.deltaTime * lookSpeed;
         vertRot = Mathf.Clamp(vertRot, minLookAngle, maxLookAngle);
-        theCam.localRotation = Quaternion.Euler(vertRot, 0f, 0f);
+        theCam.transform.localRotation = Quaternion.Euler(vertRot, 0f, 0f);
 
         Vector2 moveInput = moveAction.action.ReadValue<Vector2>();
 
@@ -78,5 +87,40 @@ public class PlayerController2 : MonoBehaviour
         moveAmount.y = ySpeed;
 
         charCon.Move(moveAmount * Time.deltaTime);
+
+        Ray ray = theCam.ViewportPointToRay(new Vector3 (.5f, .5f, 0f));
+        RaycastHit hit;
+
+        //if(Physics.Raycast(ray, out hit, interactionRange, whatIsStock))
+        //{
+        //    Debug.Log("I see a pickup");
+        //}
+        //else
+        //{
+        //    Debug.Log("I can't see anything!!!");
+        //}
+
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            if (Physics.Raycast(ray, out hit, interactionRange, whatIsStock))
+            {
+                //Debug.Log("I see a pickup");
+
+                heldPickup = hit.collider.gameObject;
+                heldPickup.transform.SetParent(holdPoint);
+                heldPickup.transform.localPosition = Vector3.zero;
+                heldPickup.transform.localRotation = Quaternion.identity;
+
+                heldPickup.GetComponent<Rigidbody>().isKinematic = true;
+            }
+        }
+
+        if (Mouse.current.rightButton.wasPressedThisFrame)
+        {
+            heldPickup.GetComponent<Rigidbody>().isKinematic = false;
+
+            heldPickup.transform.SetParent(null);
+            heldPickup = null;
+        }
     }
 }
