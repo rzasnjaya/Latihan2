@@ -535,6 +535,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 790ad85341f914442ac6d1e43ddf9d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  info:
+    name: Orange Drink
+    typeOfStock: 1
   moveSpeed: 5
   theRB: {fileID: 415955423}
 --- !u!1 &843864725
