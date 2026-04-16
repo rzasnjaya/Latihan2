@@ -10,6 +10,8 @@ public class ShelfSpaceController : MonoBehaviour
 
     public List<StockObject> objectsOnShelf;
 
+    public List<Transform> bigDrinkPoints;
+
     public void PlaceStock(StockObject objectToPlace)
     {
         //Debug.Log(objectToPlace.info.name);
@@ -27,13 +29,20 @@ public class ShelfSpaceController : MonoBehaviour
             if (info.name == objectToPlace.info.name)
             {
                 preventPlacing = false;
+
+                if (objectsOnShelf.Count >= bigDrinkPoints.Count)
+                {
+                    preventPlacing = true;
+                }
             }
         }
 
         if (preventPlacing == false)
         {
-            objectToPlace.transform.SetParent(transform);
+            //objectToPlace.transform.SetParent(transform);
             objectToPlace.MakePlaced();
+
+            objectToPlace.transform.SetParent(bigDrinkPoints[objectsOnShelf.Count]);
 
             //amountOnShelf += 1;
             objectsOnShelf.Add(objectToPlace);
