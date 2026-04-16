@@ -12,6 +12,8 @@ public class StockObject : MonoBehaviour
 
     public Rigidbody theRB;
 
+    public Collider col;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,17 +38,23 @@ public class StockObject : MonoBehaviour
         transform.localRotation = Quaternion.identity;
 
         isPlaced = false;
+
+        col.enabled = false;
     }
 
     public void MakePlaced()
     {
         theRB.isKinematic = true;
 
-        isPlaced = true;    
+        isPlaced = true;
+
+        col.enabled = false;
     }
 
     public void Release()
     {
         theRB.isKinematic = false;
+
+        col.enabled = true;
     }
 }

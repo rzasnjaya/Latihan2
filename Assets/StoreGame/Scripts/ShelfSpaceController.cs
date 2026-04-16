@@ -6,7 +6,9 @@ public class ShelfSpaceController : MonoBehaviour
 {
     public StockInfo info;
 
-    public int amountOnShelf;
+    //public int amountOnShelf;
+
+    public List<StockObject> objectsOnShelf;
 
     public void PlaceStock(StockObject objectToPlace)
     {
@@ -14,7 +16,8 @@ public class ShelfSpaceController : MonoBehaviour
 
         bool preventPlacing = true;
 
-        if (amountOnShelf == 0)
+        //if (amountOnShelf == 0)
+        if (objectsOnShelf.Count == 0)
         {
             info = objectToPlace.info;
             preventPlacing = false;
@@ -32,7 +35,22 @@ public class ShelfSpaceController : MonoBehaviour
             objectToPlace.transform.SetParent(transform);
             objectToPlace.MakePlaced();
 
-            amountOnShelf += 1;
+            //amountOnShelf += 1;
+            objectsOnShelf.Add(objectToPlace);
         }
+    }
+
+    public StockObject GetStock()
+    {
+        StockObject objectToReturn = null;
+
+        if (objectsOnShelf.Count > 0)
+        {
+            objectToReturn = objectsOnShelf[objectsOnShelf.Count - 1];
+
+            objectsOnShelf.RemoveAt(objectsOnShelf.Count - 1);
+        }
+
+        return objectToReturn;
     }
 }
