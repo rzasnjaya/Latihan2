@@ -19,7 +19,7 @@ public class PlayerController2 : MonoBehaviour
 
     public Camera theCam;
 
-    private GameObject heldPickup;
+    private StockObject heldPickup;
 
     public Transform holdPoint;
 
@@ -111,12 +111,16 @@ public class PlayerController2 : MonoBehaviour
                 {
                     //Debug.Log("I see a pickup");
 
-                    heldPickup = hit.collider.gameObject;
-                    heldPickup.transform.SetParent(holdPoint);
-                    heldPickup.transform.localPosition = Vector3.zero;
-                    heldPickup.transform.localRotation = Quaternion.identity;
+                    //heldPickup = hit.collider.gameObject;
+                    //heldPickup.transform.SetParent(holdPoint);
+                    //heldPickup.transform.localPosition = Vector3.zero;
+                    //heldPickup.transform.localRotation = Quaternion.identity;
 
-                    heldPickup.GetComponent<Rigidbody>().isKinematic = true;
+                    //heldPickup.GetComponent<Rigidbody>().isKinematic = true;
+
+                    heldPickup = hit.collider.GetComponent<StockObject>();
+                    heldPickup.transform.SetParent(holdPoint);
+                    heldPickup.Pickup();
                 }
             }
         }
@@ -126,19 +130,26 @@ public class PlayerController2 : MonoBehaviour
             {
                 if (Physics.Raycast(ray, out hit, interactionRange, whatIsShelf))
                 {
-                    heldPickup.transform.position = hit.transform.position;
-                    heldPickup.transform.rotation = hit.transform.rotation;
+                    //heldPickup.transform.position = hit.transform.position;
+                    //heldPickup.transform.rotation = hit.transform.rotation;
 
-                    heldPickup.transform.SetParent(null);
+                    //heldPickup.transform.SetParent(null);
+                    //heldPickup = null;
+
+                    heldPickup.MakePlaced();
+
+                    heldPickup.transform.SetParent(hit.transform);
                     heldPickup = null;
                 }
             }
 
             if (Mouse.current.rightButton.wasPressedThisFrame)
             {
-                Rigidbody pickupRb = heldPickup.GetComponent<Rigidbody>();
-                pickupRb.isKinematic = false;
-                pickupRb.AddForce(theCam.transform.forward * throwForce, ForceMode.Impulse); ;
+                //Rigidbody pickupRb = heldPickup.GetComponent<Rigidbody>();
+                //pickupRb.isKinematic = false;
+
+                heldPickup.Release();
+                heldPickup.theRB.AddForce(theCam.transform.forward * throwForce, ForceMode.Impulse); ;
 
                 heldPickup.transform.SetParent(null);
                 heldPickup = null;

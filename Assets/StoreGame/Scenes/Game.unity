@@ -382,6 +382,9 @@ MonoBehaviour:
   whatIsStock:
     serializedVersion: 2
     m_Bits: 512
+  whatIsShelf:
+    serializedVersion: 2
+    m_Bits: 1024
   moveAction: {fileID: 8738722328026827928, guid: 2fad77ef21e894442b3cab3fbf6599a4, type: 3}
   jumpAction: {fileID: 5078368516802720093, guid: 2fad77ef21e894442b3cab3fbf6599a4, type: 3}
   lookAction: {fileID: -6964513605613484037, guid: 2fad77ef21e894442b3cab3fbf6599a4, type: 3}
@@ -484,6 +487,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4243330605666179483, guid: 935ad6444eeefeb49a9d04ed1a06c04b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 415955423}
+    - targetCorrespondingSourceObject: {fileID: 4243330605666179483, guid: 935ad6444eeefeb49a9d04ed1a06c04b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 415955428}
   m_SourcePrefab: {fileID: 100100000, guid: 935ad6444eeefeb49a9d04ed1a06c04b, type: 3}
 --- !u!1 &415955422 stripped
 GameObject:
@@ -517,6 +523,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &415955428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415955422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad85341f914442ac6d1e43ddf9d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  theRB: {fileID: 415955423}
 --- !u!1 &843864725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1649,7 +1669,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1996813541}
   - component: {fileID: 1996813542}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ShelfSpace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
