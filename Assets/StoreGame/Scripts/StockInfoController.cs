@@ -6,7 +6,17 @@ public class StockInfoController : MonoBehaviour
 {
     public List<StockInfo> foodInfo, produceInfo;
 
-    private List<StockInfo> allStock = new List<StockInfo>();
+    public List<StockInfo> allStock = new List<StockInfo>();
+
+    public static StockInfoController instance;
+
+    private void Awake()
+    {
+        instance = this;
+
+        allStock.AddRange(foodInfo);
+        allStock.AddRange(produceInfo);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -18,5 +28,20 @@ public class StockInfoController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public StockInfo GetInfo(string stockName)
+    {
+        StockInfo infoToReturn = null;
+
+        for (int i = 0; i < allStock.Count; i++)
+        {
+            if (allStock[i].name == stockName)
+            {
+                infoToReturn = allStock[i];
+            }
+        }
+
+        return infoToReturn;
     }
 }

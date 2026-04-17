@@ -5858,7 +5858,7 @@ MonoBehaviour:
   foodInfo:
   - name: Apple
     typeOfStock: 3
-    price: 1
+    price: 1.25
     stockObject: {fileID: 3579850691428335548, guid: 5e99c7c8cdb5da14a88b4172a8fde4a7, type: 3}
   - name: Aubergine
     typeOfStock: 3
@@ -5925,6 +5925,7 @@ MonoBehaviour:
     typeOfStock: 2
     price: 2
     stockObject: {fileID: 374280522969618578, guid: e4d90b7a5d849aa40a947284ab5211c1, type: 3}
+  allStock: []
 --- !u!1 &2047386345
 GameObject:
   m_ObjectHideFlags: 0

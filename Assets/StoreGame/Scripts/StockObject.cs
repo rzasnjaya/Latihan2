@@ -17,7 +17,7 @@ public class StockObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        info = StockInfoController.instance.GetInfo(info.name);
     }
 
     // Update is called once per frame
