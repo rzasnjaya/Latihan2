@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ShelfSpaceController : MonoBehaviour
@@ -12,6 +13,8 @@ public class ShelfSpaceController : MonoBehaviour
 
     public List<Transform> bigDrinkPoints;
     public List<Transform> cerealPoints, tubeChipsPoints, fruitPoints, largeFruitPoints;
+
+    public TMP_Text shelfLabel;
 
     public void PlaceStock(StockObject objectToPlace)
     {
@@ -125,6 +128,8 @@ public class ShelfSpaceController : MonoBehaviour
 
             //amountOnShelf += 1;
             objectsOnShelf.Add(objectToPlace);
+
+            shelfLabel.text = "$" + objectsOnShelf[0].info.price;
         }
     }
 
@@ -137,6 +142,11 @@ public class ShelfSpaceController : MonoBehaviour
             objectToReturn = objectsOnShelf[objectsOnShelf.Count - 1];
 
             objectsOnShelf.RemoveAt(objectsOnShelf.Count - 1);
+        }
+
+        if (objectsOnShelf.Count == 0)
+        {
+            shelfLabel.text = string.Empty;
         }
 
         return objectToReturn;
