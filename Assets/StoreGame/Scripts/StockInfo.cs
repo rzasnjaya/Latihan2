@@ -14,7 +14,7 @@ public class StockInfo
 
     public StockType typeOfStock;
 
-    public float price;
+    public float price, currentPrice;
 
     public StockObject stockObject;
 }
