@@ -150,6 +150,7 @@ MonoBehaviour:
   info:
     name: Whole Watermelon
     typeOfStock: 4
+    price: 8
   moveSpeed: 5
   isPlaced: 0
   theRB: {fileID: 7511006720101208682}

@@ -150,6 +150,7 @@ MonoBehaviour:
   info:
     name: Half Watermelon
     typeOfStock: 4
+    price: 4
   moveSpeed: 5
   isPlaced: 0
   theRB: {fileID: 6998138199937741546}

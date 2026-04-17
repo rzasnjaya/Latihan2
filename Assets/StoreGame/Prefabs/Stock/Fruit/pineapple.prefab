@@ -148,8 +148,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   info:
-    name: Pineapple Fruit
+    name: Pineapple
     typeOfStock: 4
+    price: 5
+    stockObject: {fileID: 0}
   moveSpeed: 5
   isPlaced: 0
   theRB: {fileID: 8082004084463777227}
