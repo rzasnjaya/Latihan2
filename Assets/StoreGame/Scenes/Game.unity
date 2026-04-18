@@ -1743,12 +1743,17 @@ MonoBehaviour:
   whatIsShelf:
     serializedVersion: 2
     m_Bits: 1024
+  whatIsStockBox:
+    serializedVersion: 2
+    m_Bits: 2048
   moveAction: {fileID: 8738722328026827928, guid: 2fad77ef21e894442b3cab3fbf6599a4, type: 3}
   jumpAction: {fileID: 5078368516802720093, guid: 2fad77ef21e894442b3cab3fbf6599a4, type: 3}
   lookAction: {fileID: -6964513605613484037, guid: 2fad77ef21e894442b3cab3fbf6599a4, type: 3}
   charCon: {fileID: 377051643}
+  heldBox: {fileID: 0}
   theCam: {fileID: 1003847690}
   holdPoint: {fileID: 1733567401}
+  boxHoldPoint: {fileID: 1955387103}
   moveSpeed: 5
   jumpForce: 4
   lookSpeed: 10
@@ -3755,6 +3760,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1733567401}
+  - {fileID: 1955387103}
   m_Father: {fileID: 377051641}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1003847692
@@ -4478,11 +4484,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7633530379925704138, guid: 2f587bf2195a1484cb474c0eec3ff206, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -551725945087664469, guid: 2f587bf2195a1484cb474c0eec3ff206, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2f587bf2195a1484cb474c0eec3ff206, type: 3}
       propertyPath: m_Name
@@ -6742,6 +6748,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1782256787}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1955387102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1955387103}
+  m_Layer: 11
+  m_Name: Box Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1955387103
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955387102}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.057490367, y: 0.70476586, z: -0.057490367, w: 0.70476586}
+  m_LocalPosition: {x: 0, y: -0.77900004, z: 0.97499996}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1003847691}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1996813541 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1060763176285102724, guid: 1e5cfc31a9c22fb4ba988710e70ff20e, type: 3}
@@ -7538,7 +7575,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2113727257}
   - component: {fileID: 2113727256}
-  m_Layer: 0
+  - component: {fileID: 2113727259}
+  - component: {fileID: 2113727258}
+  m_Layer: 11
   m_Name: Box Of Stock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7557,6 +7596,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a533a628efcf94cae12fc572af4fde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  info:
+    name: Lemon
+    typeOfStock: 3
+    price: 2
+    currentPrice: 0
+    stockObject: {fileID: 51824432057711261, guid: 36ea8a9d1e17888469abbbe6d5554c5d, type: 3}
   bigDrinkPoints:
   - {fileID: 1096425956}
   - {fileID: 1610976797}
@@ -7626,6 +7671,11 @@ MonoBehaviour:
   largeFruitPoints:
   - {fileID: 250595331}
   - {fileID: 796232702}
+  stockInBox: []
+  testFill: 0
+  theRB: {fileID: 2113727258}
+  col: {fileID: 2113727259}
+  moveSpeed: 5
 --- !u!4 &2113727257
 Transform:
   m_ObjectHideFlags: 0
@@ -7643,6 +7693,54 @@ Transform:
   - {fileID: 1370814395}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &2113727258
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113727255}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &2113727259
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113727255}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.57385224, z: 0.7199376}
+  m_Center: {x: 0, y: 0.2830384, z: 0}
 --- !u!1001 &4160401952343026477
 PrefabInstance:
   m_ObjectHideFlags: 0
