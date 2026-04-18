@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class StockBoxController : MonoBehaviour
@@ -128,6 +129,24 @@ public class StockBoxController : MonoBehaviour
         {
             flap1.SetActive (true);
             flap2.SetActive (true);
+        }
+    }
+
+    public void PlaceStockOnShelf(ShelfSpaceController shelf)
+    {
+        if (stockInBox.Count > 0)
+        {
+            shelf.PlaceStock(stockInBox[stockInBox.Count - 1]);
+
+            if (stockInBox[stockInBox.Count - 1].isPlaced == true)
+            {
+                stockInBox.RemoveAt(stockInBox.Count -1);
+            }
+        }
+
+        if (flap1.activeSelf == true)
+        {
+            OpenClose();
         }
     }
 }

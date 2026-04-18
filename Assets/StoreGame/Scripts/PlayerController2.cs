@@ -45,6 +45,9 @@ public class PlayerController2 : MonoBehaviour
 
     public float throwForce;
 
+    public float waitToPlaceStock;
+    private float placeStockCounter;
+
 
 
     // Start is called before the first frame update
@@ -239,6 +242,31 @@ public class PlayerController2 : MonoBehaviour
                 if (Keyboard.current.eKey.wasPressedThisFrame)
                 {
                     heldBox.OpenClose();
+                }
+
+                if(Mouse.current.leftButton.wasPressedThisFrame)
+                {
+                    if (Physics.Raycast(ray, out hit, interactionRange, whatIsShelf))
+                    {
+                        heldBox.PlaceStockOnShelf(hit.collider.GetComponent<ShelfSpaceController>());
+
+                        placeStockCounter = waitToPlaceStock;
+                    }
+                }
+
+                if (Mouse.current.leftButton.isPressed)
+                {
+                    placeStockCounter -= Time.deltaTime;
+
+                    if (placeStockCounter <= 0)
+                    {
+                        if (Physics.Raycast(ray, out hit, interactionRange, whatIsShelf))
+                        {
+                            heldBox.PlaceStockOnShelf(hit.collider.GetComponent<ShelfSpaceController>());
+
+                            placeStockCounter = waitToPlaceStock;
+                        }
+                    }
                 }
             }
         }

@@ -1761,6 +1761,7 @@ MonoBehaviour:
   maxLookAngle: 80
   interactionRange: 5
   throwForce: 10
+  waitToPlaceStock: 0
 --- !u!143 &377051643
 CharacterController:
   m_ObjectHideFlags: 0
