@@ -146,6 +146,11 @@ public class PlayerController2 : MonoBehaviour
                     heldBox.transform.SetParent(boxHoldPoint);
                     heldBox.Pickup();
 
+                    if (heldBox.flap1.activeSelf == true)
+                    {
+                    heldBox.OpenClose();
+                    }    
+
                     return;
                 }
             }
@@ -161,6 +166,13 @@ public class PlayerController2 : MonoBehaviour
                         heldPickup.transform.SetParent(holdPoint);
                         heldPickup.Pickup();
                     }
+
+                    return;
+                }
+
+                if (Physics.Raycast(ray, out hit, interactionRange, whatIsStockBox))
+                {
+                    hit.collider.GetComponent<StockBoxController>().OpenClose();
                 }
             }
 
@@ -222,6 +234,11 @@ public class PlayerController2 : MonoBehaviour
 
                     heldBox.transform.SetParent(null);
                     heldBox = null;
+                }
+
+                if (Keyboard.current.eKey.wasPressedThisFrame)
+                {
+                    heldBox.OpenClose();
                 }
             }
         }
