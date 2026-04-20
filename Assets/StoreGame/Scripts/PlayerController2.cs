@@ -67,6 +67,14 @@ public class PlayerController2 : MonoBehaviour
             }
         }
 
+        if (UIController.Instance.buyMenuScreen != null)
+        {
+            if (UIController.Instance.buyMenuScreen.activeSelf == true)
+            {
+                return;
+            }
+        }
+
         Vector2 lookInput = lookAction.action.ReadValue<Vector2>();
 
         horiRot += lookInput.x * Time.deltaTime * lookSpeed;
