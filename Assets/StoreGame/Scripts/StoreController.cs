@@ -14,7 +14,7 @@ public class StoreController : MonoBehaviour
 
     public float currentMoney = 1000f;
 
-    public Transform stockSpawnPoint;
+    public Transform stockSpawnPoint, furnitureSpawnPoint;
 
     // Start is called before the first frame update
     void Start()
