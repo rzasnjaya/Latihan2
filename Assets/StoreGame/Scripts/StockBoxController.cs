@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -148,5 +149,45 @@ public class StockBoxController : MonoBehaviour
         {
             OpenClose();
         }
+    }
+
+    public int GetStockAmount(StockInfo.StockType type)
+    {
+        int toReturn = 0;
+
+        switch(type)
+        {
+            case StockInfo.StockType.bigDrink:
+
+                
+
+                break;
+
+            case StockInfo.StockType.cereal:
+
+                toReturn = cerealPoints.Count;
+
+                break;
+
+            case StockInfo.StockType.chipsTube:
+
+                toReturn = tubeChipsPoints.Count;
+
+                break;
+
+            case StockInfo.StockType.fruit:
+
+                toReturn = fruitPoints.Count;
+
+                break;
+
+            case StockInfo.StockType.fruitLarge:
+
+                toReturn = largeFruitPoints.Count;
+
+                break;
+        }
+
+        return toReturn;
     }
 }
