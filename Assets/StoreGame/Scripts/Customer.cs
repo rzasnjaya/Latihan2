@@ -11,6 +11,9 @@ public class Customer : MonoBehaviour
 
     public Animator anim;
 
+    public enum CustomerState { entering, browsing, queuing, atCheckout, leaving }
+    public CustomerState currentState;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,15 +27,58 @@ public class Customer : MonoBehaviour
             currentWaitTime = points[0].waitTime;
         }
 
-        points.AddRange(CustomerManager.instance.GetExitPoints());
+        //points.AddRange(CustomerManager.instance.GetExitPoints());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (points.Count > 0)
+        //if (points.Count > 0)
+        //{
+        //    MoveToPoint();
+        //}
+
+        switch (currentState)
         {
-            MoveToPoint();
+            case CustomerState.entering:
+
+                if (points.Count > 0)
+                {
+                    MoveToPoint();
+                }
+                else
+                {
+                    StartLeaving();
+                }
+
+                    break;
+
+                case CustomerState.browsing:
+
+                    break;
+
+                case CustomerState.queuing:
+
+                    break;
+
+                case CustomerState.atCheckout:
+
+                    break;
+
+                case CustomerState.leaving:
+
+                if (points.Count > 0)
+                {
+                    MoveToPoint();
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
+
+                break;
+
+
         }
     }
 
@@ -56,7 +102,6 @@ public class Customer : MonoBehaviour
                 {
                     StartNextPoint();
                 }
-            
         }
 
         anim.SetBool("isMoving", isMoving);
@@ -73,6 +118,14 @@ public class Customer : MonoBehaviour
                 currentWaitTime = points[0].waitTime;
             }
         }
+    }
+
+    public void StartLeaving()
+    {
+        currentState = CustomerState.leaving;
+
+        points.Clear(); 
+        points.AddRange(CustomerManager.instance.GetExitPoints());
     }
 }
 
