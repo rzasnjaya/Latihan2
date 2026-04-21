@@ -9,10 +9,17 @@ public class FurnitureController : MonoBehaviour
 
     public float price;
 
+    public Transform standPoint;
+
+    public List<ShelfSpaceController> shelves;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (shelves.Count > 0)
+        {
+            StoreController.instance.shelvingCases.Add(this);
+        }
     }
 
     // Update is called once per frame

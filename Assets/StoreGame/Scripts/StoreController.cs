@@ -16,6 +16,8 @@ public class StoreController : MonoBehaviour
 
     public Transform stockSpawnPoint, furnitureSpawnPoint;
 
+    public List<FurnitureController> shelvingCases = new List<FurnitureController>();
+
     // Start is called before the first frame update
     void Start()
     {
