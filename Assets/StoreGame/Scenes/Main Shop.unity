@@ -4249,9 +4249,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {fileID: 1992348916}
-  - {fileID: 801847734}
-  - {fileID: 805561749}
+  - point: {fileID: 1992348916}
+    waitTime: 1
+  - point: {fileID: 801847734}
+    waitTime: 0
+  - point: {fileID: 805561749}
+    waitTime: 3
+  - point: {fileID: 801847734}
+    waitTime: 0
+  - point: {fileID: 1992348916}
+    waitTime: 0.5
+  - point: {fileID: 637914035}
+    waitTime: 0
   moveSpeed: 3
 --- !u!1001 &1164419716
 PrefabInstance:
