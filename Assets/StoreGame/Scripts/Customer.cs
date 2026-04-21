@@ -14,7 +14,17 @@ public class Customer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentWaitTime = points[0].waitTime;
+        points.Clear();
+        points.AddRange(CustomerManager.instance.GetEntryPoints());
+
+        if (points.Count > 0)
+        {
+            transform.position = points[0].point.position;
+
+            currentWaitTime = points[0].waitTime;
+        }
+
+        points.AddRange(CustomerManager.instance.GetExitPoints());
     }
 
     // Update is called once per frame
