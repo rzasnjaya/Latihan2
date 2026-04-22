@@ -27,6 +27,8 @@ public class Customer : MonoBehaviour
 
     private List<StockObject> stockInBag = new List<StockObject>();
 
+    private Vector3 queuePoint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -94,7 +96,17 @@ public class Customer : MonoBehaviour
                             }
                             else
                             {
-                                StartLeaving();
+                            //StartLeaving();
+                                if (stockInBag.Count > 0)
+                                {
+                                Checkout.instance.AddCustomerToQueue(this);
+
+                                currentState = CustomerState.queuing;
+                                }
+                                else
+                                {
+                                    StartLeaving();
+                                }
                             }
                         }
                     }
@@ -102,6 +114,17 @@ public class Customer : MonoBehaviour
                     break;
 
                 case CustomerState.queuing:
+
+                    transform.position = Vector3.MoveTowards(transform.position, queuePoint, moveSpeed * Time.deltaTime);
+                    
+                    if (Vector3.Distance(transform.position, queuePoint) > .1f)
+                    {
+                    anim.SetBool("isMoving", true);
+                    }
+                    else
+                    {
+                    anim.SetBool("isMoving", false);
+                    }
 
                     break;
 
@@ -219,6 +242,12 @@ public class Customer : MonoBehaviour
             currentWaitTime = points[0].waitTime;
         }
 
+    }
+
+    public void UpdateQueuePoint(Vector3 newPoint)
+    {
+        queuePoint = newPoint;
+        transform.LookAt(queuePoint);
     }
 }
 
