@@ -63,6 +63,11 @@ public class Checkout : MonoBehaviour
             customersInQueue.RemoveAt(0);
 
             UpdateQueue();
+
+            if (AudioManager.instance != null)
+            {
+                AudioManager.instance.PlaySFX(3);
+            }
         }
 
     }

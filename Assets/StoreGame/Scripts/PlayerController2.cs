@@ -127,6 +127,11 @@ public class PlayerController2 : MonoBehaviour
             if (jumpAction.action.WasPressedThisFrame())
             {
                 ySpeed = jumpForce;
+
+                if (AudioManager.instance != null)
+                {
+                    AudioManager.instance.PlaySFX(8);
+                }
             }
         }
 
@@ -166,6 +171,11 @@ public class PlayerController2 : MonoBehaviour
                     heldPickup.transform.SetParent(holdPoint);
                     heldPickup.Pickup();
 
+                    if (AudioManager.instance != null)
+                    {
+                        AudioManager.instance.PlaySFX(6);
+                    }
+
                     return;
                 }
 
@@ -179,7 +189,12 @@ public class PlayerController2 : MonoBehaviour
                     if (heldBox.flap1.activeSelf == true)
                     {
                     heldBox.OpenClose();
-                    }    
+                    }
+
+                    if (AudioManager.instance != null)
+                    {
+                        AudioManager.instance.PlaySFX(1);
+                    }
 
                     return;
                 }
@@ -230,6 +245,11 @@ public class PlayerController2 : MonoBehaviour
                     heldFurniture.transform.localRotation = Quaternion.identity;
 
                     heldFurniture.MakePlaceable();
+
+                    if (AudioManager.instance != null)
+                    {
+                        AudioManager.instance.PlaySFX(4);
+                    }
                 }
             }
         }
@@ -258,6 +278,11 @@ public class PlayerController2 : MonoBehaviour
                         {
                             heldPickup = null;
                         }
+
+                        if (AudioManager.instance != null)
+                        {
+                            AudioManager.instance.PlaySFX(7);
+                        }
                     }
                 }
 
@@ -271,6 +296,11 @@ public class PlayerController2 : MonoBehaviour
 
                     heldPickup.transform.SetParent(null);
                     heldPickup = null;
+
+                    if (AudioManager.instance != null)
+                    {
+                        AudioManager.instance.PlaySFX(9);
+                    }
                 }
             }
 
@@ -283,6 +313,11 @@ public class PlayerController2 : MonoBehaviour
 
                     heldBox.transform.SetParent(null);
                     heldBox = null;
+
+                    if(AudioManager.instance != null)
+                    {
+                        AudioManager.instance.PlaySFX(0);
+                    }
                 }
 
                 if (Keyboard.current.eKey.wasPressedThisFrame)
@@ -300,7 +335,12 @@ public class PlayerController2 : MonoBehaviour
                         heldBox.PlaceStockOnShelf(hit.collider.GetComponent<ShelfSpaceController>());
 
                         placeStockCounter = waitToPlaceStock;
-                    }
+
+                            if (AudioManager.instance != null)
+                            {
+                                AudioManager.instance.PlaySFX(7);
+                            }
+                        }
                 }
                 else
                     {
@@ -309,6 +349,11 @@ public class PlayerController2 : MonoBehaviour
                             Destroy(heldBox.gameObject);
 
                             heldBox = null;
+
+                            if (AudioManager.instance != null)
+                            {
+                                AudioManager.instance.PlaySFX(10);
+                            }
                         }
                     }
 
@@ -341,7 +386,12 @@ public class PlayerController2 : MonoBehaviour
 
                     heldFurniture.PlaceFurniture();
 
-                    heldFurniture = null;   
+                    heldFurniture = null;
+
+                    if (AudioManager.instance != null)
+                    {
+                        AudioManager.instance.PlaySFX(5);
+                    }
                 }
             }
         }
