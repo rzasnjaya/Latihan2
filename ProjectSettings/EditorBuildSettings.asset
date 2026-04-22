@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/SunnyLand/Scenes/MainMenu.unity
-    guid: 70f8077868403f64ebdecb21afad99e6
+    path: Assets/StoreGame/Scenes/Main Menu.unity
+    guid: c79f1714e7399454f9aaef1498d67486
   - enabled: 1
-    path: Assets/SunnyLand/Scenes/Game.unity
-    guid: 49dde3231fd1ae845bb52759071076d1
+    path: Assets/StoreGame/Scenes/Main Shop.unity
+    guid: 39210f3a956f06f48b653ffc1956d965
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2fad77ef21e894442b3cab3fbf6599a4, type: 3}
