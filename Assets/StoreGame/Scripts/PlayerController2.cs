@@ -15,6 +15,8 @@ public class PlayerController2 : MonoBehaviour
 
     public LayerMask whatIsFurniture;
 
+    public LayerMask whatIsCheckout;
+
     public InputActionReference moveAction;
 
     public InputActionReference jumpAction;
@@ -172,6 +174,11 @@ public class PlayerController2 : MonoBehaviour
                     }    
 
                     return;
+                }
+
+                if (Physics.Raycast(ray, out hit, interactionRange, whatIsCheckout))
+                {
+                    hit.collider.GetComponent<Checkout>().CheckoutCustomer();
                 }
             }
 

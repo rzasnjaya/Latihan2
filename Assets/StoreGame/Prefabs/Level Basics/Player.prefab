@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 5068811769103680171}
   - component: {fileID: 7254982080561679632}
   - component: {fileID: 405772076293355080}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,6 +231,9 @@ MonoBehaviour:
   whatIsFurniture:
     serializedVersion: 2
     m_Bits: 8192
+  whatIsCheckout:
+    serializedVersion: 2
+    m_Bits: 65536
   moveAction: {fileID: 8738722328026827928, guid: 2fad77ef21e894442b3cab3fbf6599a4, type: 3}
   jumpAction: {fileID: 5078368516802720093, guid: 2fad77ef21e894442b3cab3fbf6599a4, type: 3}
   lookAction: {fileID: -6964513605613484037, guid: 2fad77ef21e894442b3cab3fbf6599a4, type: 3}
