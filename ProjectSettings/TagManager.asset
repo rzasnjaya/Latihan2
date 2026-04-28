@@ -30,7 +30,7 @@ TagManager:
   - PlayerBlockers
   - Player
   - Checkout
-  - 
+  - Character
   - 
   - 
   - 
@@ -54,4 +54,7 @@ TagManager:
     locked: 0
   - name: Gem
     uniqueID: 1284190851
+    locked: 0
+  - name: Character
+    uniqueID: 820658099
     locked: 0
