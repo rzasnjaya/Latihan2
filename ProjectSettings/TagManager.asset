@@ -12,6 +12,8 @@ TagManager:
   - Deactivator
   - Coin
   - Gem
+  - Wall
+  - WalkTarget
   layers:
   - Default
   - TransparentFX
