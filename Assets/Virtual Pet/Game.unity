@@ -4578,7 +4578,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.07089605, y: 0.09889209}
   m_AnchorMax: {x: 0.9201288, y: 0.8776308}
-  m_AnchoredPosition: {x: -0.62809753, y: -1.6120911}
+  m_AnchoredPosition: {x: -0.6281128, y: -1.6120911}
   m_SizeDelta: {x: -0.5783081, y: 1.9929199}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &450428628
@@ -4653,7 +4653,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000076293945, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &458080184
@@ -15040,7 +15040,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.07089605, y: 0.09889209}
   m_AnchorMax: {x: 0.9201288, y: 0.8776308}
-  m_AnchoredPosition: {x: -0.62809753, y: -1.6120911}
+  m_AnchoredPosition: {x: -0.6281128, y: -1.6120911}
   m_SizeDelta: {x: -0.5783081, y: 1.9929199}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1615898870
@@ -17531,7 +17531,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.21215346}
   m_AnchorMax: {x: 1, y: 0.31778416}
-  m_AnchoredPosition: {x: -6.535019, y: -54.724987}
+  m_AnchoredPosition: {x: -6.535034, y: -54.72499}
   m_SizeDelta: {x: 7.0699606, y: 0.8100281}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1887653598
@@ -17678,6 +17678,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1888922413}
   - component: {fileID: 1888922414}
+  - component: {fileID: 1888922415}
   m_Layer: 0
   m_Name: dogVisual
   m_TagString: Untagged
@@ -17752,6 +17753,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1888922415
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888922412}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fd82fc3d04c56bd439ab23d80f6a2b24, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1906366683
 GameObject:
   m_ObjectHideFlags: 0
