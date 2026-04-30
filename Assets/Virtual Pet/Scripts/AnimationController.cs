@@ -10,7 +10,7 @@ public class AnimationController : MonoBehaviour {
 
     private Animator anim;
     private AudioSource source;
-    //private Training training;
+    private Training training;
     private TouchController controller;
 
     private bool facingLeft = true;
@@ -22,47 +22,47 @@ public class AnimationController : MonoBehaviour {
     {
         anim = GetComponentInChildren<Animator> ();
         source = GetComponent<AudioSource> ();
-        //training = GetComponent<Training>();
+        training = GetComponent<Training>();
         controller = GetComponent<TouchController>();
+    }
+
+    void Update()
+    {
+        //walking = controller.Walking;
+
+        // play barking sound
+        if (training.barking && !walking && !source.isPlaying)
+            source.Play();
+        else if ((!training.barking || walking) && source.isPlaying)
+            source.Stop();
+
+        anim.SetBool("Walking", walking);
+        anim.SetBool("Barking", training.barking);
+        anim.SetBool("Standing", !training.sitting);
+        anim.SetBool("Looking", training.looking);
     }
 
     //void Update()
     //{
-    //    //walking = controller.Walking;
+    //    walking = controller.Walking;
 
-    //    // play barking sound
-    //    if (training.barking && !walking &&!source.isPlaying)
-    //        source.Play ();
-    //    else if ((!training.barking || walking) && source.isPlaying)
-    //        source.Stop ();
+    //    bool barking = false;
+    //    bool standing = true;
+    //    bool looking = false;
 
-    //    anim.SetBool ("Walking", walking);
-    //    anim.SetBool ("Barking", training.barking);
-    //    anim.SetBool ("Standing", !training.sitting);
-    //    anim.SetBool ("Looking", training.looking);
+    //    if(Input.GetKey(KeyCode.B))
+    //        barking = true;
+
+    //    if (Input.GetKey(KeyCode.L))
+    //        looking = true;
+
+    //    if (Input.GetKey(KeyCode.S))
+    //        standing = false;
+
+    //    anim.SetBool("Walking", walking);
+    //    anim.SetBool("Barking", barking);
+    //    anim.SetBool("Standing", standing);
+    //    anim.SetBool("Looking", looking);
     //}
-
-    void Update()
-    {
-        walking = controller.Walking;
-
-        bool barking = false;
-        bool standing = true;
-        bool looking = false;
-
-        if(Input.GetKey(KeyCode.B))
-            barking = true;
-
-        if (Input.GetKey(KeyCode.L))
-            looking = true;
-
-        if (Input.GetKey(KeyCode.S))
-            standing = false;
-
-        anim.SetBool("Walking", walking);
-        anim.SetBool("Barking", barking);
-        anim.SetBool("Standing", standing);
-        anim.SetBool("Looking", looking);
-    }
 }
 

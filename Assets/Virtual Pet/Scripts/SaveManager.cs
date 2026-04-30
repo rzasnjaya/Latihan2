@@ -54,7 +54,7 @@ public class SaveManager : MonoBehaviour {
                 nextLevelTotalXp*=nextLevelXpMultiplier;
                 currentLevel++;
                 // Call level change method
-                //GameObject.FindObjectOfType<LevelManager>().LevelChange(currentLevel);
+                GameObject.FindObjectOfType<LevelManager2>().LevelChange(currentLevel);
             }
            
             UpdateProgressBar();
@@ -76,6 +76,7 @@ public class SaveManager : MonoBehaviour {
         // this line is for debugging
         Bones = 1000;
         XP = 0;
+        GameObject.FindObjectOfType<LevelManager2>().LevelChange(currentLevel);
     }
 	
     //void LoadFromPlayerPrefs()
